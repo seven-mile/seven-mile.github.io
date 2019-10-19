@@ -209,7 +209,7 @@
                 <ul class="archive-posts">
                     
                         <li class="archive-post">
-                            <a class="archive-post-title" href="/stack-research/">
+                            <a class="archive-post-title" href="/stack-research.html">
                                 Servicing Stack Research Report
                             </a>
                             <span class="archive-post-date">
@@ -229,7 +229,7 @@
                 <ul class="archive-posts">
                     
                         <li class="archive-post">
-                            <a class="archive-post-title" href="/about/">
+                            <a class="archive-post-title" href="/about.html">
                                 About 7mile
                             </a>
                             <span class="archive-post-date">
@@ -249,7 +249,7 @@
                 <ul class="archive-posts">
                     
                         <li class="archive-post">
-                            <a class="archive-post-title" href="/sot/">
+                            <a class="archive-post-title" href="/sot.html">
                                 S.O.T.
                             </a>
                             <span class="archive-post-date">
@@ -346,34 +346,22 @@
 
 
     
-        <script type="text/javascript">
+        <script>
+             var disqus_config = function () {
+                 this.page.url = 'https://seven-mile.github.io/all-tags/index.html';
+                 
+                    this.page.identifier = 'all-tags/index.html';
+                 
+             };
             (function() {
-                function render() {
-                    new Gitment({
-                        id: 'https://seven-mile.github.io/all-tags/index.html',
-                        owner: 'seven-mile',
-                        repo: 'GitmentStorage',
-                        oauth: {
-                            client_id: '9c47caae07fcce148014',
-                            client_secret: '30c1eaa880f91de2145028c0043a6bf4c91a0d34',
-                        }
-                    }).render('gitment');
-                }
-                var gc = document.createElement('script');
-                gc.type = 'text/javascript';
-                gc.src = '/assets/js/gitment.js';
-                gc.charset = 'UTF-8';
-                gc.onload = render;
-                gc.async = true;
-                document.querySelector('body').appendChild(gc);
-                var gcs = document.createElement('link');
-                gcs.href = '/assets/css/gitment.css';
-                gcs.type = 'text/css';
-                gcs.rel = 'stylesheet';
-                gcs.media = 'screen,print';
-                document.querySelector('head').appendChild(gcs);
+                var d = document, s = d.createElement('script');
+                var disqus_shortname = '7mile';
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
             })();
-	    </script>
+        </script>
     
 
 

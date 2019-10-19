@@ -182,7 +182,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
-                        <a class="link" href="/sot/">
+                        <a class="link" href="/sot.html">
                             S.O.T.
                         </a>
                     
@@ -201,7 +201,7 @@
                 <div class="postShorten-excerpt" itemprop="articleBody">
                     <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constexpr</span> <span class="keyword">auto</span> SOT = TEXT(<span class="string">"Scraps of talking"</span>);</span><br></pre></td></tr></table></figure>
                     
-                        <a href="/sot/" class="postShorten-excerpt_link link">
+                        <a href="/sot.html" class="postShorten-excerpt_link link">
                             阅读全文
                         </a>
                         
@@ -219,7 +219,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
-                        <a class="link" href="/stack-research/">
+                        <a class="link" href="/stack-research.html">
                             Servicing Stack Research Report
                         </a>
                     
@@ -242,7 +242,7 @@
 <p>首先 TI 是服务堆栈的一部分，实际上，是一个 COM RPC API 存根。你可能已经注意到，服务堆栈太强大了，尤其是它可以操作在线系统（当前启动的系统）的组件池，所以它要进行权限隔离。于是它用自己的一套公开接口（虽然是公开的但没有文档）重新封装了一遍服务堆栈的公开对象。在客户端操作服务堆栈的时候，操作离线系统时，可以不使用 TI ，但操作在线系统时，微软是希望客户端使用这一 RPC API 进行跨进程调用的，如此一来你拿不到 TI 权限，但却能调用服务堆栈 API 。事情到这里还没完，TI 自己并不是你调用的对象——你没有足够的权限启动它。它需要从 TI 服务启动才能得到正确的权限，所以微软又做了一个壳外壳——CbsApi.dll，它是一个真正的空壳，作为 RPC 调用的 COM DLL ，把一个 COCLASS 和不少公开接口注册到了注册表里。到这里你可能以为终于完了，但其实还是有一层封装……那就是 TiWorker ，顾名思义，TI 毕竟是个壳，它并不直接与服务堆栈 API 交互，而是靠与 TiWorker 通讯。TiWorker 由 TI 自己启动，继承了 TI 的权限，可以加载服务堆栈的 API DLL 并顺利调用。所以总结一下，一个客户端（Windows 更新、程序与功能、DISM、程序包管理器等等）想要操作在线映像，真实的通讯路径是这样的：</p>
 <p>$$<br>\ce{\text{Client}-&gt;T[Load DLL]\text{CbsApi.dll}-&gt;T[RPC]\text{TI}-&gt;T[RPC]TiWorker-&gt;T[Load DLL]\text{Servicing Stack}}<br>$$</p>
                     
-                        <a href="/stack-research/" class="postShorten-excerpt_link link">
+                        <a href="/stack-research.html" class="postShorten-excerpt_link link">
                             阅读全文
                         </a>
                         
@@ -260,7 +260,7 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
-                        <a class="link" href="/about/">
+                        <a class="link" href="/about.html">
                             About 7mile
                         </a>
                     
@@ -285,7 +285,7 @@
                     
                     
                         <p>
-                            <a href="/about/#post-footer" class="postShorten-excerpt_link link">
+                            <a href="/about.html#post-footer" class="postShorten-excerpt_link link">
                                 评论和共享
                             </a>
                         </p>
