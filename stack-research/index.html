@@ -1,0 +1,566 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="7mile">
+    <title>Servicing Stack Research Report - 7mile</title>
+    <meta name="author" content="7mile">
+    
+        <meta name="keywords" content="Math,RE,">
+    
+    
+    
+    <meta name="description" content="综述何为「服务堆栈」(Servicing Stack，简称为 Stack)？服务(Servicing)是指 Windows 系统中的高级管理、部署行为，针对的对象是「系统映像」(Image，包括在线(Online)映像和离线(Offline)映像)，广义上包括许多安装时的部署步骤、版本管理、Appx程序包管理、驱动包管理和更新包管理。但服务堆栈中的服务是狭义地指代更新包管理(Package Ser">
+<meta name="keywords" content="Reverse Engineering">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Servicing Stack Research Report">
+<meta property="og:url" content="https://seven-mile.github.io/stack-research/index.html">
+<meta property="og:site_name" content="7mile">
+<meta property="og:description" content="综述何为「服务堆栈」(Servicing Stack，简称为 Stack)？服务(Servicing)是指 Windows 系统中的高级管理、部署行为，针对的对象是「系统映像」(Image，包括在线(Online)映像和离线(Offline)映像)，广义上包括许多安装时的部署步骤、版本管理、Appx程序包管理、驱动包管理和更新包管理。但服务堆栈中的服务是狭义地指代更新包管理(Package Ser">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-10-19T06:27:45.289Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Servicing Stack Research Report">
+<meta name="twitter:description" content="综述何为「服务堆栈」(Servicing Stack，简称为 Stack)？服务(Servicing)是指 Windows 系统中的高级管理、部署行为，针对的对象是「系统映像」(Image，包括在线(Online)映像和离线(Offline)映像)，广义上包括许多安装时的部署步骤、版本管理、Appx程序包管理、驱动包管理和更新包管理。但服务堆栈中的服务是狭义地指代更新包管理(Package Ser">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://gravatar.com/avatar/2a03ee06efc88ddf75b83105e6cbade4?s=200"/>
+    
+    
+    
+    
+
+    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"> </script>
+    <!--STYLES-->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/assets/css/thumbs.css">
+    <link rel="stylesheet" href="/assets/css/7mile.css">
+    <!--STYLES END-->
+    
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">7mile</a>
+    </div>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="https://gravatar.com/avatar/2a03ee06efc88ddf75b83105e6cbade4?s=200" alt="作者的图片"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a href="/#about">
+                    <img class="sidebar-profile-picture" src="https://gravatar.com/avatar/2a03ee06efc88ddf75b83105e6cbade4?s=200" alt="作者的图片"/>
+                </a>
+                <h4 class="sidebar-profile-name">7mile</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>八轨宇宙的七里征途</p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                            title="Home"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-tags"
+                            
+                            title="Tags"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-archives"
+                            
+                            title="Archives"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://github.com/seven-mile" target="_blank" rel="noopener" title="Github">
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Github</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/about"
+                            
+                            title="About"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            Servicing Stack Research Report
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time itemprop="datePublished" datetime="2019-10-14T13:22:54+08:00">
+	
+		    10月 14, 2019
+    	
+    </time>
+    
+</div>
+
+    
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <!-- Main Content of Post -->
+            <h1 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h1><p>何为「服务堆栈」(Servicing Stack，简称为 Stack)？服务(Servicing)是指 Windows 系统中的高级管理、部署行为，针对的对象是「系统映像」(Image，包括在线(Online)映像和离线(Offline)映像)，广义上包括许多安装时的部署步骤、版本管理、Appx程序包管理、驱动包管理和更新包管理。但服务堆栈中的服务是狭义地指代更新包管理(Package Servicing，更新包以下简称包)。</p>
+<p>服务堆栈作为 Windows 的一个核心组件，地位是非常重要的，因为 Windows 从 Vista 开始就是全盘组件化(Componentized)的，系统中的任何文件，包括 <code>ntoskrnl.exe</code> 、ApiSet 和服务堆栈自己等等，都可以进行更新。这个组件存储池(Component Store)叫做 <code>WinSxS</code> ，就是那个经常困扰得用户总想把它删除的大块头。</p>
+<p>资深 Windows 用户大都知道一个用户，同时也是一个进程，一个服务，TrustedInstaller(以下简称 TI)。本质上这个东西是一个双重意义的壳子。</p>
+<p>首先 TI 是服务堆栈的一部分，实际上，是一个 COM RPC API 存根。你可能已经注意到，服务堆栈太强大了，尤其是它可以操作在线系统（当前启动的系统）的组件池，所以它要进行权限隔离。于是它用自己的一套公开接口（虽然是公开的但没有文档）重新封装了一遍服务堆栈的公开对象。在客户端操作服务堆栈的时候，操作离线系统时，可以不使用 TI ，但操作在线系统时，微软是希望客户端使用这一 RPC API 进行跨进程调用的，如此一来你拿不到 TI 权限，但却能调用服务堆栈 API 。事情到这里还没完，TI 自己并不是你调用的对象——你没有足够的权限启动它。它需要从 TI 服务启动才能得到正确的权限，所以微软又做了一个壳外壳——CbsApi.dll，它是一个真正的空壳，作为 RPC 调用的 COM DLL ，把一个 COCLASS 和不少公开接口注册到了注册表里。到这里你可能以为终于完了，但其实还是有一层封装……那就是 TiWorker ，顾名思义，TI 毕竟是个壳，它并不直接与服务堆栈 API 交互，而是靠与 TiWorker 通讯。TiWorker 由 TI 自己启动，继承了 TI 的权限，可以加载服务堆栈的 API DLL 并顺利调用。所以总结一下，一个客户端（Windows 更新、程序与功能、DISM、程序包管理器等等）想要操作在线映像，真实的通讯路径是这样的：</p>
+<p>$$<br>\ce{\text{Client}-&gt;T[Load DLL]\text{CbsApi.dll}-&gt;T[RPC]\text{TI}-&gt;T[RPC]TiWorker-&gt;T[Load DLL]\text{Servicing Stack}}<br>$$</p>
+<a id="more"></a>
+
+<p>其次它作为用户仅仅出现在文件、注册表等对象的所有权中，而拥有这份权限的进程的用户必然是 System ，并不存在以 TrustedInstaller 为用户的进程，但这并不意味着 System 用户所有的进程可以操作 TI 的东西。TI 权限在进程中的体现是一个叫做 <code>NT SERVICES\Trusted Installer</code> 的 Token 。到这里你应该已经猜到了，正常的 Windows 下只可能有 TI 和 TiWorker 拥有 TI 权限。但有没有其他方法呢？当然有！其中的技术细节偏离主题，不再赘述，我推荐你直接使用 <a href="https://github.com/M2Team/NSudo" target="_blank" rel="noopener">NSudo 项目</a> ，尤其可以直接用它启动 VS ，这样你编写的客户端（是的，在这篇报告中，我们会撰写一个与服务堆栈交互的客户端）就可以像操作离线系统那样操作在线系统，自己喧宾夺主化身为 TiWorker （雾），这给调试带来的利好是巨大的。</p>
+<p>说回组件存储池，实际上它在 XP 时代已经出现，当时开发的口号是「下一代 System32」，虽然到现在也没有取代 System32 ，但它确实成功实现了多版本 DLL 共存，并且可以随时回退，为微软解决了大量的问题，简化了许多流程。最典型的例子就是通用组件库 V5 和 V6 的切换了，众所周知在 XP/Vista/7 盛行的年代，许多应用程序的界面是 Windows 经典的可视化风格，但实际上只需要在资源文件中绑定一个 manifest 指定使用通用组件库 V6 ，就可以加载出当下主题的可视化风格。到了更高版本的 Windows ，还把可选功能(Capability)集成了进去，并且存储池拥有自我修复功能，所以与我们熟知的工具 <code>sfc.exe</code> 也是紧密相连的（sfc.exe 基于 WRP Integrity API，是服务堆栈的一部分），在 MVP 手中是一把威力巨大的利刃。</p>
+<p>组件存储池并非我们的主题，但我们还是了解一些它的内部结构为好。它也有公开的 API ，来自 <code>sxs.dll</code> 和 <code>sxsstore.dll</code> ，这个机制也叫 <code>Fusion</code> 。它可以管理各类运行时的不同版本、COM 组件的非注册性调用等等（通过重定向）。它底层为节省空间做出了一些贡献，例如硬链接技术的使用（但你无法在资源管理器中看到硬链接的节省空间数）。它是由程序集(Side by Side Assembly)组织的。我逆向了 <code>ISxSStore</code> 接口，但从未使用过它，它的定义如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ISxSStore</span> :</span> IUnknown &#123;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE <span class="title">QueryInterface</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">		REFIID riid, _Out_ LPVOID* ppvObject)</span> </span>= <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> ULONG STDMETHODCALLTYPE <span class="title">AddRef</span><span class="params">(<span class="keyword">void</span>)</span> </span>= <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> ULONG STDMETHODCALLTYPE <span class="title">Release</span><span class="params">(<span class="keyword">void</span>)</span> </span>= <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE <span class="title">BeginAssemblyInstall</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">		ULONG)</span> </span>= <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE <span class="title">InstallAssembly</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">		ULONG,</span></span></span><br><span class="line"><span class="function"><span class="params">		_Out_ USHORT <span class="keyword">const</span>*,</span></span></span><br><span class="line"><span class="function"><span class="params">		_Out_ _SXS_STORE_INSTALL_SOURCE_INFO <span class="keyword">const</span>*,</span></span></span><br><span class="line"><span class="function"><span class="params">		_Out_ _SXS_STORE_INSTALL_REFERENCEW <span class="keyword">const</span>*)</span> </span>= <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE <span class="title">EndAssemblyInstall</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">		ULONG,</span></span></span><br><span class="line"><span class="function"><span class="params">		_Out_ ULONG*)</span> </span>= <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE <span class="title">UninstallAssembly</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">		ULONG,</span></span></span><br><span class="line"><span class="function"><span class="params">		_Out_ USHORT <span class="keyword">const</span>*,</span></span></span><br><span class="line"><span class="function"><span class="params">		_Out_ _SXS_STORE_INSTALL_REFERENCEW <span class="keyword">const</span>*,</span></span></span><br><span class="line"><span class="function"><span class="params">		_Out_ ULONG*)</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>目前 MSDN 中关于 WinSxS 的公开文档不多不少，不多是因为我们对它的具体底层实现知道得很少，不少是因为它确实无处不在。大部分有用的信息都可以在<a href="https://docs.microsoft.com/en-us/windows/win32/api/_setup/index" target="_blank" rel="noopener">这里</a>和<a href="https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-8.1-and-8/dn251569(v=win.10)" target="_blank" rel="noopener">这里</a>找到。</p>
+<h1 id="从包说起"><a href="#从包说起" class="headerlink" title="从包说起"></a>从包说起</h1><p>那么什么是包呢？Windows 更新当然是包，除此之外它还包括 Windows 功能(Feature)和可选功能(Capability)，封装格式主要包括 <code>*.cab</code> <code>*.msu</code> ，解包后还有自描述文件 <code>*.mum</code> ，是一个 xml 格式的 manifest 。</p>
+<hr>
+<p>每个包有一个唯一标识符(Identity)，格式为 <code>[Product]-[Feature]-Package~[PublicKeyToken]~[Architecture]~~[Version]</code> （功能包）或 <code>[Product]-[Feature]-Package~[PublicKeyToken]~[Architecture]~[Region]~[Version]</code> （语言包）或 <code>Package_for_[UpdateName]~[Architecture]~[Region]~[Version]</code> （更新）。</p>
+<p>“Product” 指的是包针对的产品名称，绝大多数时候是 <code>Microsoft-Windows</code> 和 <code>Microsoft-Onecore</code> ，少数时候是 <code>OpenSSH-Client</code> 这类东西。</p>
+<p>“PublicKeyToken” 是一个签名公钥令牌，几乎总是为<code>31bf3856ad364e35</code>，微软用它很久了，你应该也在许多 .Net 程序集里看到过它。</p>
+<p>“Region” 就是语言区域，类似 <code>en-us</code> <code>zh-cn</code> 这样的字符串，但非语言包一般都为空，所以在格式中会突兀地出现 <code>~~</code> 。</p>
+<p>“Version” 也是微软长久以来使用的版本书写方式，称为 <code>Four Parts Version</code> 具体格式为 <code>Major.Minor.Build.Revision</code> 。</p>
+<p>“UpdateName” 是更新名，常是 KB (Knowledge Base) 文章序号，还有一类是 Rollup Fix ，是微软一直维护的积累性更新包，一般来讲你只需要安装最新的 Rollup Fix ，而更新 Rollup Fix 时旧的包会被取代(Superseded)</p>
+<hr>
+<p>每个包还有一个重要的参数是释放类型(Release Type)，包括 OnDemand Pack（可选功能包）、Language Pack（语言包）、Foundation（基础包，实际上是所有 Windows 功能的母包）、Update（积累性更新）、Security Update（安全更新）。</p>
+<hr>
+<p>自然而然地，包当然有安装状态。从这里开始我们要讨论一些内部实现相关的东西了，不再脱离实现泛泛而谈。安装状态在服务堆栈里有多种表达方法，用于外部交互的是 <code>_CbsInstallState</code>，而在内部使用的是 <code>CbsState</code> ，它们的部分常量值有差别。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> _CbsInstallState &#123;</span><br><span class="line">	CbsInstallStatePartiallyInstalled = <span class="number">-19</span>,</span><br><span class="line">	CbsInstallStateCancel = <span class="number">-18</span>,</span><br><span class="line">	CbsInstallStateSuperseded = <span class="number">-17</span>,</span><br><span class="line">	CbsInstallStateDefault = <span class="number">-16</span>,</span><br><span class="line">	CbsInvalidStatePermanent = <span class="number">-8</span>,</span><br><span class="line">	CbsInvalidStateInstalled = <span class="number">-7</span>,</span><br><span class="line">	CbsInvalidStateStaged = <span class="number">-4</span>,</span><br><span class="line">	CbsInvalidStateResolved = <span class="number">-2</span>,</span><br><span class="line">	CbsInstallStateUnknown = <span class="number">-1</span>,</span><br><span class="line"></span><br><span class="line">	CbsInstallStateAbsent = <span class="number">0</span>,</span><br><span class="line"></span><br><span class="line">	CbsInstallStateResolving = <span class="number">1</span>,</span><br><span class="line">	CbsInstallStateResolved = <span class="number">2</span>,</span><br><span class="line">	CbsInstallStateStaging = <span class="number">3</span>,</span><br><span class="line">	CbsInstallStateStaged = <span class="number">4</span>,</span><br><span class="line">	CbsInstallStateUninstallRequested = <span class="number">5</span>,</span><br><span class="line">	CbsInstallStateInstallRequested = <span class="number">6</span>,</span><br><span class="line">	CbsInstallStateInstalled = <span class="number">7</span>,</span><br><span class="line">	CbsInstallStatePermanent = <span class="number">8</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> CbsState &#123;</span><br><span class="line">	CbsStateResolvedInvalid = <span class="number">-32</span>,</span><br><span class="line">	CbsStateStagedInvalid = <span class="number">-64</span>,</span><br><span class="line">	CbsStateInstalledInvalid = <span class="number">-112</span>,</span><br><span class="line">	CbsStatePermanentInvalid = <span class="number">-128</span>,</span><br><span class="line"></span><br><span class="line">	CbsStateAbsent = <span class="number">0</span>,</span><br><span class="line">	CbsStateUninstallPending = <span class="number">5</span>,</span><br><span class="line">	CbsStateResolving = <span class="number">16</span>,</span><br><span class="line">	CbsStateResolved = <span class="number">32</span>,</span><br><span class="line">	CbsStateStaging = <span class="number">48</span>,</span><br><span class="line">	CbsStateStaged = <span class="number">64</span>,</span><br><span class="line">	CbsStateSuperseded = <span class="number">80</span>,</span><br><span class="line">	CbsStateInstallPending = <span class="number">96</span>,</span><br><span class="line">	CbsStatePartiallyInstalled = <span class="number">101</span>,</span><br><span class="line">	CbsStateInstalled = <span class="number">112</span>,</span><br><span class="line">	CbsStatePermanent = <span class="number">128</span>,</span><br><span class="line">	CbsStateDefault = <span class="number">4096</span>,</span><br><span class="line">	CbsStateDetect = <span class="number">4100</span>,</span><br><span class="line">	CbsStateCanceled = <span class="number">4101</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>是的，我只是向你介绍这样一个现象，相信你也并未被这两个简单的枚举类型吓到。</p>
+<p>这是一种关于包很重要的常量，常见的值有 <code>Installed</code> <code>Absent</code> <code>Staged</code> <code>Superseded</code> ，其它的状态较为少见。<code>Absent</code> 就是并未安装的游离态，<code>Staged</code> 就是存储进存储池了，类似于 Git 中的 Staged 状态，而 <code>Superseded</code> 是旧包被新包取代，这样的两个包一般是 <code>Revision</code> 版本不同。</p>
+<p>值得一提的是 <code>Invalid</code> 这类状态，我还没碰上过，也不知到底是怎么个非法。</p>
+<hr>
+<p>实际上包还有许多属性，由于包类型很多，所以很多包的某部分属性为空，下面给出了包属性的列表。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> _CbsPackageProperty &#123;</span><br><span class="line">	CbsPackagePropertyIdentityString = <span class="number">1</span>,</span><br><span class="line">	CbsPackagePropertyDisplayName = <span class="number">2</span>,</span><br><span class="line">	CbsPackagePropertyDescription = <span class="number">3</span>,</span><br><span class="line">	CbsPackagePropertyRestart = <span class="number">4</span>,</span><br><span class="line">	CbsPackagePropertyPsfName = <span class="number">5</span>,</span><br><span class="line">	CbsPackagePropertyHidden = <span class="number">6</span>,</span><br><span class="line">	CbsPackagePropertyKeyword = <span class="number">7</span>,</span><br><span class="line">	CbsPackagePropertyReleaseType = <span class="number">8</span>,</span><br><span class="line">	CbsPackagePropertyProductName = <span class="number">9</span>,</span><br><span class="line">	CbsPackagePropertyProductVersion = <span class="number">10</span>,</span><br><span class="line">	CbsPackagePropertyPermenence = <span class="number">11</span>,</span><br><span class="line">	CbsPackagePropertyCompany = <span class="number">12</span>,</span><br><span class="line">	CbsPackagePropertyCopyright = <span class="number">13</span>,</span><br><span class="line">	CbsPackagePropertySupportInformation = <span class="number">14</span>,</span><br><span class="line">	CbsPackagePropertyCreationTimeStamp = <span class="number">15</span>,</span><br><span class="line">	CbsPackagePropertyLastUpdateTimeStamp = <span class="number">16</span>,</span><br><span class="line">	CbsPackagePropertyInstallTimeStamp = <span class="number">17</span>,</span><br><span class="line">	CbsPackagePropertyInstallPackageName = <span class="number">18</span>,</span><br><span class="line">	CbsPackagePropertyInstallLocation = <span class="number">19</span>,</span><br><span class="line">	CbsPackagePropertyInstallClient = <span class="number">20</span>,</span><br><span class="line">	CbsPackagePropertyInstallUserName = <span class="number">21</span>,</span><br><span class="line">	CbsPackagePropertyExtendedError = <span class="number">22</span>,</span><br><span class="line">	CbsPackagePropertyPended = <span class="number">23</span>,</span><br><span class="line">	CbsPackagePropertyHotpatch = <span class="number">24</span>,</span><br><span class="line">	CbsPackagePropertyExclusive = <span class="number">25</span>,</span><br><span class="line">	CbsPackagePropertyAllowedOffline = <span class="number">26</span>,</span><br><span class="line">	CbsPackagePropertyCompletelyOfflineCapable = <span class="number">27</span>,</span><br><span class="line">	CbsPackagePropertyScavengeSequence = <span class="number">28</span>,</span><br><span class="line">	CbsPackagePropertyPackageSize = <span class="number">29</span>,</span><br><span class="line">	CbsPackagePropertySupersededTime = <span class="number">30</span>,</span><br><span class="line">	CbsPackagePropertyStackUpdate = <span class="number">31</span>,</span><br><span class="line">	CbsPackagePropertyReleaseQuality = <span class="number">32</span>,</span><br><span class="line">	CbsPackagePropertyTargetPartition = <span class="number">33</span>,</span><br><span class="line">	CbsPackagePropertyBinaryPartition = <span class="number">34</span>,</span><br><span class="line">	CbsPackagePropertyCapabilityIdentity = <span class="number">35</span>,</span><br><span class="line">	CbsPackagePropertyInternalStagingSizeWithExternalStorage = <span class="number">36</span>,</span><br><span class="line">	CbsPackagePropertyInternalStagingSizeWithoutExternalStorage = <span class="number">37</span>,</span><br><span class="line">	CbsPackagePropertyInstallSizeWithExternalStorage = <span class="number">38</span>,</span><br><span class="line">	CbsPackagePropertyInstallSizeWithoutExternalStorage = <span class="number">39</span>,</span><br><span class="line">	CbsPackagePropertyExternalStagingSize = <span class="number">40</span>,</span><br><span class="line">	CbsPackagePropertyFeatureFMID = <span class="number">41</span>,</span><br><span class="line">	CbsPackagePropertyFeatureGroup = <span class="number">42</span>,</span><br><span class="line">	CbsPackagePropertyPermanentUntilReset = <span class="number">43</span>,</span><br><span class="line">	CbsPackagePropertySatelliteType = <span class="number">44</span>,</span><br><span class="line">	CbsPackagePropertyDeclareSatelliteLanguage = <span class="number">45</span>,</span><br><span class="line">	CbsPackagePropertyDeclareSatelliteArch = <span class="number">46</span>,</span><br><span class="line">	CbsPackagePropertyRemoveOnReset = <span class="number">51</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="理解服务堆栈"><a href="#理解服务堆栈" class="headerlink" title="理解服务堆栈"></a>理解服务堆栈</h1><p>虽然没有就包在文件系统中的存在形式做深入探讨，但彻底了解了包在堆栈中的常用封装的我们已经可以开始理清服务堆栈的结构了。服务堆栈并不把自己放入 System32 ，而是始终存在于 WinSxS 中，以组件的形式存在，我们的系统中时常有多版本的服务堆栈。一个典型的堆栈文件夹路径是 <code>%WINDIR%\WinSxS\amd64_microsoft-windows-servicingstack_31bf3856ad364e35_10.0.18362.1_none_dbbcd1444482e944</code> ，经过刚刚包的标识符讨论，你应该可以理解路径中的大部分元素意义。<code>none</code> 指的是 <code>NoneSxS</code> 组件，不过这个我们不深究。</p>
+<p>依然是顾名思义，既然叫 堆栈(Stack，可见微软文档的中文翻译者文学素养之高，这可是现代汉语的偏义复词（雾）) 那么就具有栈式结构。栈顶是我们曾提到的客户端，像是 Windows 更新、Windows 语言包设置、甚至是 Win10 的开发者模式。</p>
+<p>紧接着往下是 CBS(Component-Based Servicing) ，也即基于组件的服务。它是一个广义的概念，TI 和 TiWorker 实际上属于它的一部分，但只是壳子，并非核心。CBS 的核心 DLL 非常直白，就叫 <code>CbsCore.dll</code> 。刚刚说的 TiWorker 所加载的服务堆栈 DLL 主要就是指它。它实现了服务堆栈的大部分接口，具体的接口会在以后讨论，我们要知道的是与 CBS 交互的核心接口被叫做 Session(会话，对应接口为 ICbsSession)。 CBS 管理的存储池层面叫做 CBS Store ，主要是注册表部分，也就是 <code>COMPONENT</code> Hive。</p>
+<p>CBS 使用什么来完成它的工作呢？在服务堆栈的栈底，是 CSI(Component Servicing Infrastructure) 它的核心是 <code>wcp.dll</code> ，WCP(Windows Componentization Platform) Windows 组件化平台，实现了成千上万的、海量的函数、功能与接口，用以支持组件的部署与管理。CSI 自己的存储池层面抽象出来被叫做 CSI Store ，而与 CSI 交互，核心的概念被叫做 Transaction(事务，对应接口为 ICSITransaction)。</p>
+<p>一个区分 CBS 与 CSI 工作的关键点在于，CBS 维护的是注册表中的组件存储，而 CSI 维护的是文件系统中的（WinSxS 文件夹）。</p>
+<hr>
+<p>CBS 所处理的东西并没有 CSI 那么恐怖，所以还是可以作为必读内容来写的。我们先拿一个典型的、完整的包安装过程来举例说明堆栈的前2.5层如何工作。</p>
+<p>首先作为一个称职的客户端，从网络上辛苦地下载好了一个包，就假定是一个 cab ，并且未在系统里安装过。你接下来就会初始化好 CBS DLL 和一个 ICbsSession 接口（这些细节先不管），调用它的 <code>CreatePackage</code> 方法用 cab 文件创建一个 <code>ICbsPackage</code> 对象。这个方法的原型是</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE ICbsSession::CreatePackage(</span><br><span class="line">	_In_ UINT options,</span><br><span class="line">	_In_ _CbsPackageType packageType,</span><br><span class="line">	_In_ LPCTSTR szPkgPath,</span><br><span class="line">	_In_ LPCTSTR,</span><br><span class="line">	_Out_ ICbsPackage** pPackage) = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<p>主要关注 <code>_CbsPackageType</code> ，对于 cab 包我们可以提供一个 <code>CbsPackageTypeCabinet = 0</code> 给它，而包路径就写文件路径，后一个参数填 <code>NULL</code>，把 <code>ICbsPackage*</code> 用你的变量存起来。你就这样轻松地得到了未安装的一个 cab 包的抽象对象。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE</span><br><span class="line">	ICbsPackage::EvaluateApplicability(</span><br><span class="line">		_In_ UINT option,</span><br><span class="line">		_Out_ _CbsInstallState* pApplicabilityState,</span><br><span class="line">		_Out_ _CbsInstallState* pCurrentState) = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE</span><br><span class="line">	ICbsPackage::InitiateChanges(</span><br><span class="line">		_In_ UINT installOptions,</span><br><span class="line">		_In_ _CbsInstallState targetState,</span><br><span class="line">		_In_ struct ICbsUIHandler* pUIHandler) = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<p>注意到这两个函数，你需要首先对包进行评估(Evaluate)，以得到可以应用的状态(Applicability State)和当前的状态(Current State)。按理来讲一个正确的包会分别给你返回 <code>CbsInstallStateInstalled</code> 和 <code>CbsInstallStateAbsent</code> ，然后你调用 <code>InitiateChanges</code> 来初期化更改，<code>installOptions = 0, targetState = CbsInstallStateInstalled</code>，注意，仅仅是初期化，并未进行更改，这就是 <code>Session</code> 设计的精髓，以类似对话的形式存下想要的更改。怎么结束对话呢？结束我们的 <code>ICbsSession</code> 即可。这时，在会话的结束过程中一切更改将会被应用于系统，上面初期化更改时你提供的 <code>ICbsUIHandler*</code> 就会在这时被回调调用，让你得知进度，这个以后再介绍。有时一些更改需要重启，会话此时还会告诉你，你需不需要重启。</p>
+<p>这样一来，CBS 的工作也就到此结束，你发现它所做的事情大概有这么几种：加载读取包信息、评估包状态，它把要更改的包扔给 CSI 来完成实际操作，还负责安装时的记录工作，生成安装事件、有时还在“程序与功能”中加入此包。除此之外，作为一个包管理器，它公开了枚举组件存储池中的包的接口。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// options: normal: 0x1b0, all: 0x50 or 0x70</span></span><br><span class="line"><span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE</span><br><span class="line">	ICbsSession::EnumeratePackages(</span><br><span class="line">		_In_ UINT options,</span><br><span class="line">		_Out_ IEnumCbsIdentity** pPackageList) = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这就是 CBS 所完成的大多数工作了，当然，到新版本还有腐败侦测与修复功能。</p>
+<hr>
+<p><strong>以下为选读内容</strong></p>
+<p>CSI 基于 Transaction ，这暗示 CSI 的操作基于 KTM(Kernel Transaction Manager) ，一个公开且有文档的内核机制，不过这已经太过底层而不适于交互。</p>
+<p>CSI 在安装组件时有时需要采用高级安装器(Advanced Installer)，这是通过 CMI(Component Management Infrastructure) 来完成的。它基于 COM 有一个 API ，并且类型库是公开的，其 DLL 在 <code>%WINDIR%\AdvancedInstallers\cmiv2.dll</code> 下。我并未尝试过使用它。</p>
+<p>而 CSI 关于驱动的安装交给了 DMI(Driver Management and Install) ，来调用 DriverStore。这并不是我们讨论的主题，就此略过。</p>
+<p>最后关于注册表的一些零星操作由 SMI(Systems Management Infrastructure) 处理。</p>
+<p>这是一些无关紧要的边角料，接下来我们来细细讲一讲 CSI 安装一个组件的过程。</p>
+<p>CBS 确定好要更改的组件/包，把它传递给 CSI ，然后 CSI ：</p>
+<ul>
+<li>如果是安装一个组件，CSI 首先要 Stage 它，也即存储。在存储时，CSI 检查包的完整性、与已存在的对应文件对比以决定要加入那些文件、理清组件间的依赖关系，然后再真正进行安装，并在最后按以上结果评估出一个正确的包的状态。</li>
+<li>如果是卸载一个组件，CSI 首先检查组件中正在被使用的文件，判断是否需要重新启动等，然后把当前组件及其依赖项的文件置为非可用状态。注意，此时这些文件并不一定会被从磁盘上抹除，也有可能接着保留。</li>
+</ul>
+<p>在两种更改的过程中，都不仅仅有文件的移动或删除，还有一些 cmd 命令和注册表更改要执行，CSI 把一切需要执行的更改全都维护在一个队列中，叫做 Primitive Operations Queue(POQ) 。如果安装过程需要中断，CSI 会序列化(Serialize)这个队列，把它存在 <code>%WINDIR%\WinSxS\Pending.xml</code> 中。</p>
+<hr>
+<p>最后，介绍完了服务堆栈的两大核心 CBS 和 CSI ，我们可以看看堆栈中其它重要的小组件，例如 <code>dpx.dll</code> ，这是唯一一个与包相关的、存在公开头文件（dpx.h, dpx1.h, 附于 Windows SDK 内）的 DLL ，全名是 Delta Package eXpander，它可以展开 Delta 格式包。</p>
+<p>最重要的是 <code>wdscore.dll</code> ，也就是 <code>Panther Engine</code> ，黑豹引擎模块，负责了整个堆栈的日志工作和一些实用工具。<code>CBS.log</code> 和 <code>Dism.log</code> 都是由它记录的。</p>
+<p>调试服务堆栈，日志和逆向是我们最有用的信息源。</p>
+<h1 id="开始：第一个服务堆栈客户端"><a href="#开始：第一个服务堆栈客户端" class="headerlink" title="开始：第一个服务堆栈客户端"></a>开始：第一个服务堆栈客户端</h1><p>此教程演示如何初始化、终结化服务堆栈。</p>
+<p>如上文所说，我们将绕过 TI 与 TiWorker 直接加载 CbsCore ，通过逆向容易得到 CbsCore.dll 中需要用到的部分导出函数的原型</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">HRESULT <span class="title">CbsCoreInitialize</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">	IMalloc*,</span></span></span><br><span class="line"><span class="function"><span class="params">	<span class="keyword">int</span>(__stdcall*)(<span class="keyword">int</span>),</span></span></span><br><span class="line"><span class="function"><span class="params">	<span class="keyword">void</span> (*)(), <span class="keyword">void</span> (*)(),</span></span></span><br><span class="line"><span class="function"><span class="params">	<span class="keyword">void</span> (*)(), <span class="keyword">void</span> (*)(),</span></span></span><br><span class="line"><span class="function"><span class="params">	<span class="keyword">void</span> (*)(), IClassFactory**)</span></span>;</span><br><span class="line"><span class="function">HRESULT <span class="title">CbsCoreFinalize</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>阅读本文需要一定的 C/C++ 素养与 COM 知识， <code>IMalloc</code> 我们可以自己取得后直接传过去， 而<code>int(__stdcall*)(int)</code> <code>void(*)()</code> 是函数指针，<code>IClassFactory**</code> 输出我们所需要的类厂的指针。</p>
+<p>中间那些函数指针实际上是提供给 Core 的事件回调函数，暂且不管，我们只要建个原型匹配的空函数（或返回零）传给它就好了。</p>
+<p>所以初步的工作是：初始化 COM 、加载 CbsCore.dll 、定位导出函数、取得 <code>IMalloc</code> 、初始化以取得类厂。总的代码清单是这个样子的：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Load Core DLL</span></span><br><span class="line">HMODULE hCbsCore = LoadLibrary(pathCbsCore);</span><br><span class="line">DWORD dwLastError = GetLastError();</span><br><span class="line">assert(hCbsCore);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Get Proc Addr</span></span><br><span class="line"><span class="keyword">auto</span> vpfnCbsCoreInitialize = </span><br><span class="line">    (HRESULT(__stdcall*)(struct IMalloc*, <span class="keyword">int</span>(__stdcall*)(<span class="keyword">int</span>),</span><br><span class="line">    <span class="keyword">void</span> (*)(<span class="keyword">void</span>), <span class="keyword">void</span> (*)(<span class="keyword">void</span>), <span class="keyword">void</span> (*)(<span class="keyword">void</span>), <span class="keyword">void</span> (*)(<span class="keyword">void</span>),</span><br><span class="line">    <span class="keyword">void</span> (*)(<span class="keyword">void</span>), struct IClassFactory**))</span><br><span class="line">    GetProcAddress(hCbsCore, <span class="string">"CbsCoreInitialize"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">auto</span> vpfnCbsCoreFinalize = </span><br><span class="line">	(HRESULT(__stdcall*)(<span class="keyword">void</span>))GetProcAddress(hCbsCore, <span class="string">"CbsCoreFinalize"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Get IMalloc</span></span><br><span class="line">LPMALLOC pMalloc = <span class="literal">NULL</span>;</span><br><span class="line">CoGetMalloc(<span class="number">1u</span>, &amp;pMalloc);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Get IClassFactory</span></span><br><span class="line">vpfnCbsCoreInitialize(pMalloc, CoreLockProcCB, CoreUnlockProcCB, </span><br><span class="line">	CoreInstCreatedCB, CoreInstDestroyedCB, CoreReqShutdownNowCB, </span><br><span class="line">	CoreReqShutdownProcessingCB, &amp;pCbsCoreFactory)</span><br></pre></td></tr></table></figure>
+
+<p>这样一来我们就得到了类厂，终于能创建需要的接口了。还记得么？ CBS 交互基于 Session ，所以我们接下来的首要目标是创建一个 ICbsSession 。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pCbsCoreFactory-&gt;CreateInstance(<span class="literal">NULL</span>, IID_ICbsSession, (LPVOID*)&amp;pCbsSession);</span><br><span class="line"></span><br><span class="line">pCbsSession-&gt;Initialize(<span class="comment">/*option:*/</span><span class="literal">NULL</span>, _(<span class="string">"CallCbsCore"</span>), <span class="literal">NULL</span>, <span class="literal">NULL</span>)</span><br><span class="line"></span><br><span class="line">LPTSTR strp = <span class="literal">NULL</span>;</span><br><span class="line">pCbsSession-&gt;GetSessionId(&amp;strp);</span><br><span class="line">_tprintf(_(<span class="string">"Current Session has been created successfully, ID %s\n"</span>), strp);</span><br></pre></td></tr></table></figure>
+
+
+            
+
+            <!-- CC4 Copyright -->
+            <!-- <p>
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/" style="display: inline-block;" >
+                    <img src="https://img.shields.io/badge/License-CC%20BY--SA%204.0-brightgreen.svg?style=flat-square" alt="License: CC BY-SA 4.0">
+                </a>
+            </p> -->
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">标签</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Reverse-Engineering/">Reverse Engineering</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/sot/" data-tooltip="S.O.T." aria-label="上一篇: S.O.T.">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/about/" data-tooltip="About 7mile" aria-label="下一篇: About 7mile">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+        
+            
+                <li class="post-action">
+                    <a class="post-action-btn btn btn--default" href="#gitment">
+                         <i class="fa fa-comment-o"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+                <div id="gitment"></div>
+            
+        
+    </div>
+</article>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a79b221a2b380c2"></script>
+
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2019   <a href="/ ">7mile</a> . All Rights Reserved.
+    </span>
+    <p>
+        Made in Northern Lights.
+    </p>
+    <p>
+        UI powered by <a href="https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak">Tranquilpeak</a>, <a href="https://github.com/LouisBarranqueiro">Louis Barranqueiro</a>, Thanks a lot.
+    </p>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/sot/" data-tooltip="S.O.T." aria-label="上一篇: S.O.T.">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/about/" data-tooltip="About 7mile" aria-label="下一篇: About 7mile">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+        
+            
+                <li class="post-action">
+                    <a class="post-action-btn btn btn--default" href="#gitment">
+                         <i class="fa fa-comment-o"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <i id="btn-close-shareoptions" class="fa fa-close"></i>
+    <ul class="share-options">
+        
+    </ul>
+</div>
+
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="https://gravatar.com/avatar/2a03ee06efc88ddf75b83105e6cbade4?s=200" alt="作者的图片"/>
+        
+            <h4 id="about-card-name">7mile</h4>
+        
+            <div id="about-card-bio"><p>八轨宇宙的七里征途</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>学生</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                E-Rev
+            </div>
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('https://i.loli.net/2019/10/14/sYR8q6XPydftLDM.png');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.fancybox.js"></script>
+<script src="/assets/js/thumbs.js"></script>
+<script src="/assets/js/7mile.js"></script>
+<!--SCRIPTS END-->
+
+<!-- Valine -->
+<!-- <script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://s.hh12.cn/lib/valine-h.js?"></script>
+<script>
+    new Valine({
+            el:'#comment',
+        appId:'LYAURI39Gq6Km4Qct1s59W62-gzGzoHsz',
+        appKey:'qKwfAzC5vN5SDGGWEh4RrO0s',
+        verify: true,
+        notify: true,
+        placeholder: '拙作苟有谬误，还烦请斧正。',
+        avatar: 'identicon'
+    })
+</script> -->
+
+<script>
+    console.clear();
+</script>
+
+
+    
+        <script type="text/javascript">
+            (function() {
+                function render() {
+                    new Gitment({
+                        id: 'https://seven-mile.github.io/stack-research/',
+                        owner: 'TranchBellic',
+                        repo: 'Gitment',
+                        oauth: {
+                            client_id: '6b7aaf244f18064b6fee',
+                            client_secret: '31d0291de48c56b7314204dead3353bb66068ec8',
+                        }
+                    }).render('gitment');
+                }
+                var gc = document.createElement('script');
+                gc.type = 'text/javascript';
+                gc.src = '//imsun.github.io/gitment/dist/gitment.browser.js';
+                gc.charset = 'UTF-8';
+                gc.onload = render;
+                gc.async = true;
+                document.querySelector('body').appendChild(gc);
+                var gcs = document.createElement('link');
+                gcs.href = '//imsun.github.io/gitment/style/default.css';
+                gcs.type = 'text/css';
+                gcs.rel = 'stylesheet';
+                gcs.media = 'screen,print';
+                document.querySelector('head').appendChild(gcs);
+            })();
+	    </script>
+    
+
+
+
+
+    <!-- MathJax -->
+    <script src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_SVG"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({"SVG": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+                            tex2jax: { inlineMath: [ ["$", "$"] ], displayMath: [ ["$$","$$"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
+                            jax: ["input/TeX", "output/SVG"],
+                            TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },
+                            messageStyle: "none"
+        });
+        MathJax.Ajax.config.path["mhchem"] = "https://cdnjs.cloudflare.com/ajax/libs/mathjax-mhchem/3.3.0";
+        MathJax.Hub.Config({
+            TeX: {
+                extensions: ["extpfeil.js","[mhchem]/mhchem.js"]
+            }
+        });
+    </script>
+
+        
+    </body>
+</html>
