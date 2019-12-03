@@ -177,6 +177,61 @@
     <section class="postShorten-group main-content-wrap">
     
     
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link" href="/a-problem-about-specular-rectangle-reflection.html">
+                            一个矩形镜面反射的问题
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2019-12-03T17:36:20+08:00">
+	
+		    12月 03, 2019
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>数学老师讲完了某个很水的对称专题课的课间，同学来问一个他提的问题。</p>
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>一个矩形 $X\times Y$ 四边都是镜面，从某个点 $P(x,y)$ 以某个非平凡角度 $\theta$ 出发，允许任意次反射，求光线最终能够回到 $P$ 的充要条件。</p>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>他说完题我就开始口胡我的第一反应，按套路来肯定是排掉一些情形，</p>
+<p>由于光路可逆，所以光线不可能陷入某个不包括 $P$ 的周期轨迹，</p>
+<p>然后自然地就会想到，不能回到 $P$ 必然是 $(P_c, \theta_c)$ 在每个位置都不重复。</p>
+<p>然而这是无限集，还是有可能的。</p>
+<p>此时这个点会给我们很大的提示。意识到每次反射相当于把横坐标扣掉 $X$ ，再结合生活常识，我们很容易想到这样建模：</p>
+<p>整个场景相当于是无穷大的平面上有无穷多个 $X\times Y$ 矩形密铺，你从某个点出发，回到原点，相当于是到达平面内的另一个点</p>
+<p>$$P’(x+nX,y+mY)\text{, in which }n,m \in \mathbb Z$$</p>
+<p>那么考虑斜率……</p>
+<p>$$<br>k=\frac{nX}{mY}<br>$$</p>
+<p>由于 $n/m$ 代表的是全体有理数 $\mathbb Q$ ，所以，充要条件就是：</p>
+<p>$\tan \theta$ 是 $X/Y$ 的有理数倍。</p>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/a-problem-about-specular-rectangle-reflection.html#post-footer" class="postShorten-excerpt_link link">
+                                评论和共享
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
     <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
