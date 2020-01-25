@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="7mile">
-    <title>标签: Reverse Engineering - 7mile</title>
+    <title>标签: Task - 7mile</title>
     <meta name="author" content="7mile">
     
         <meta name="keywords" content="Math,RE,">
@@ -17,7 +17,7 @@
 <meta name="keywords" content="Math,RE">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="7mile">
-<meta property="og:url" content="https://seven-mile.github.io/tags/Reverse-Engineering/index.html">
+<meta property="og:url" content="http://7li.moe/tags/Task/index.html">
 <meta property="og:site_name" content="7mile">
 <meta property="og:description" content="八轨宇宙的七里征途">
 <meta property="og:locale" content="zh-cn">
@@ -177,21 +177,21 @@
     <section class="postShorten-group main-content-wrap">
     
     
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
-                        <a class="link" href="/stack-research.html">
-                            Servicing Stack Research Report
+                        <a class="link" href="/proceed.html">
+                            proceed
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2019-10-14T13:22:54+08:00">
+    <time itemprop="datePublished" datetime="2020-01-25T22:21:34+08:00">
 	
-		    10月 14, 2019
+		    1月 25, 2020
     	
     </time>
     
@@ -199,17 +199,22 @@
 
             </div>
             
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <h1 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h1><p>何为「服务堆栈」(Servicing Stack，简称为 Stack)？服务(Servicing)是指 Windows 系统中的高级管理、部署行为，针对的对象是「系统映像」(Image，包括在线(Online)映像和离线(Offline)映像)，广义上包括许多安装时的部署步骤、版本管理、Appx程序包管理、驱动包管理和更新包管理。但服务堆栈中的服务是狭义地指代更新包管理(Package Servicing，更新包以下简称包)。</p>
-<p>服务堆栈作为 Windows 的一个核心组件，地位是非常重要的，因为 Windows 从 Vista 开始就是全盘组件化(Componentized)的，系统中的任何文件，包括 <code>ntoskrnl.exe</code> 、ApiSet 和服务堆栈自己等等，都可以进行更新。这个组件存储池(Component Store)叫做 <code>WinSxS</code> ，就是那个经常困扰得用户总想把它删除的大块头。</p>
-<p>资深 Windows 用户大都知道一个用户，同时也是一个进程，一个服务，TrustedInstaller(以下简称 TI)。本质上这个东西是一个双重意义的壳子。</p>
-<p>首先 TI 是服务堆栈的一部分，实际上，是一个 COM RPC API 存根。你可能已经注意到，服务堆栈太强大了，尤其是它可以操作在线系统（当前启动的系统）的组件池，所以它要进行权限隔离。于是它用自己的一套公开接口（虽然是公开的但没有文档）重新封装了一遍服务堆栈的公开对象。在客户端操作服务堆栈的时候，操作离线系统时，可以不使用 TI ，但操作在线系统时，微软是希望客户端使用这一 RPC API 进行跨进程调用的，如此一来你拿不到 TI 权限，但却能调用服务堆栈 API 。事情到这里还没完，TI 自己并不是你调用的对象——你没有足够的权限启动它。它需要从 TI 服务启动才能得到正确的权限，所以微软又做了一个壳外壳——CbsApi.dll，它是一个真正的空壳，作为 RPC 调用的 COM DLL ，把一个 COCLASS 和不少公开接口注册到了注册表里。到这里你可能以为终于完了，但其实还是有一层封装……那就是 TiWorker ，顾名思义，TI 毕竟是个壳，它并不直接与服务堆栈 API 交互，而是靠与 TiWorker 通讯。TiWorker 由 TI 自己启动，继承了 TI 的权限，可以加载服务堆栈的 API DLL 并顺利调用。所以总结一下，一个客户端（Windows 更新、程序与功能、DISM、程序包管理器等等）想要操作在线映像，真实的通讯路径是这样的：</p>
-<p>$$<br>\ce{\text{Client}-&gt;T[Load DLL]\text{CbsApi.dll}-&gt;T[RPC]\text{TI}-&gt;T[RPC]TiWorker-&gt;T[Load DLL]\text{Servicing Stack}}<br>$$</p>
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>留白。</p>
+<p>毕竟……一看便知……</p>
+<div class="alert info"><p>「But it refused.」</p>
+</div>
+
                     
-                        <a href="/stack-research.html" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
                         
+
+                    
+                    
+                        <p>
+                            <a href="/proceed.html#post-footer" class="postShorten-excerpt_link link">
+                                评论和共享
+                            </a>
+                        </p>
                     
                 </div>
             
@@ -230,7 +235,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2019   <a href="/ ">7mile</a> . All Rights Reserved.
+        Copyrights &copy; 2020   <a href="/ ">7mile</a> . All Rights Reserved.
     </span>
     <p>
         Made in Northern Lights.
@@ -322,7 +327,7 @@
                             TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },
                             messageStyle: "none"
         });
-        MathJax.Ajax.config.path["mhchem"] = "https://cdnjs.cloudflare.com/ajax/libs/mathjax-mhchem/3.3.0";
+        MathJax.Ajax.config.path["mhchem"] = "https://cdn.bootcss.com/mathjax-mhchem/3.3.2";
         MathJax.Hub.Config({
             TeX: {
                 extensions: ["extpfeil.js","[mhchem]/mhchem.js"]
