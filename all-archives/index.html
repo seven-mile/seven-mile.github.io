@@ -36,10 +36,8 @@
     
     
 
-    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"> </script>
-    <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"> </script>
     <!--STYLES-->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
     <link rel="stylesheet" href="/assets/css/font-awesome.css">
     <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
     <link rel="stylesheet" href="/assets/css/thumbs.css">
@@ -301,27 +299,31 @@
 
         
 <div id="cover" style="background-image:url('https://i.loli.net/2019/10/14/sYR8q6XPydftLDM.png');"></div>
-        <!--SCRIPTS-->
+        <!-- SCRIPTS OPTIONS -->
+<script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [ ["$", "$"] ],
+            displayMath: [ ["$$","$$"] ],
+            processEscapes: true
+        },
+        options: {
+            ignoreHtmlClass: "tex2jax_ignore|dno",
+            processHtmlClass: 'tex2jax_process'
+        }
+    };
+</script>
+<!-- SCRIPTS OPTIONS END -->
+
+<!--SCRIPTS-->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
 <script src="/assets/js/jquery.js"></script>
 <script src="/assets/js/jquery.fancybox.js"></script>
 <script src="/assets/js/thumbs.js"></script>
 <script src="/assets/js/7mile.js"></script>
 <!--SCRIPTS END-->
-
-<!-- Valine -->
-<!-- <script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="https://s.hh12.cn/lib/valine-h.js?"></script>
-<script>
-    new Valine({
-            el:'#comment',
-        appId:'LYAURI39Gq6Km4Qct1s59W62-gzGzoHsz',
-        appKey:'qKwfAzC5vN5SDGGWEh4RrO0s',
-        verify: true,
-        notify: true,
-        placeholder: '拙作苟有谬误，还烦请斧正。',
-        avatar: 'identicon'
-    })
-</script> -->
 
 <script>
     console.clear();
@@ -350,22 +352,7 @@
 
 
 
-    <!-- MathJax -->
-    <script src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_SVG"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({"SVG": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
-                            tex2jax: { inlineMath: [ ["$", "$"] ], displayMath: [ ["$$","$$"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
-                            jax: ["input/TeX", "output/SVG"],
-                            TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },
-                            messageStyle: "none"
-        });
-        MathJax.Ajax.config.path["mhchem"] = "https://cdn.bootcss.com/mathjax-mhchem/3.3.2";
-        MathJax.Hub.Config({
-            TeX: {
-                extensions: ["extpfeil.js","[mhchem]/mhchem.js"]
-            }
-        });
-    </script>
+    
 
         
     </body>
