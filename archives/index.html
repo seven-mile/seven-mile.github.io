@@ -249,6 +249,96 @@
         
     </article>
     
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link" href="/element-iv.html">
+                            离散技巧略点
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2019-03-12T21:34:50+08:00">
+	
+		    3月 12, 2019
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <div class="aplayer" data-id="29710375" data-server="netease" data-type="song">
+</div>
+
+<p>（orz这是以前幼稚时期文章的搬运，后续部分一字未改，主要面向刚入门的初高中生读者以及希望自己写的过程能更加简洁的巨佬，有空再新加几个原则，希望有一天良好的规范和技巧能蔚然成风。</p>
+<h1 id="和式的规范与艾弗森括号的使用"><a href="#和式的规范与艾弗森括号的使用" class="headerlink" title="和式的规范与艾弗森括号的使用"></a>和式的规范与艾弗森括号的使用</h1><p>如果你熟悉这两个东西，可以直接从比较干货 <a href="#例题">例题</a> 部分开始看（如果你的浏览器不能直接跳转，请 F5 刷新页面）。</p>
+<p>一般来说常见的和号是这样的形式 $\displaystyle \sum_{i=1}^n$ ，但是我更倾向于使用清晰的条件 $\displaystyle\sum_{1\le i\le n}$ 简单而信息完备。</p>
+<p>在必要的时候：如比较赶时间、或者不正式的场合，省略条件是可以接受的，但是求和变量一般是不可以省略的。</p>
+<p>有人可能会提到爱因斯坦求和约定，不过抱歉，在离散数学中我不推荐你这么用，和号的作用是非常大的，如果省略和号，我觉得你什么也做不了（躺）</p>
+<p>艾弗森括号是这样一个记号：</p>
+<p>$$<br>[P]:=<br>\begin{cases}<br>  1,&amp;P\text{ is true}\\<br>  0^*,&amp;P\text{ is false}<br>\end{cases}<br>$$</p>
+<p>其中，$0^*$ 的意思是强制性置零，比如这个和式</p>
+<p>$$<br>\sum_{0\le i\le n}\frac 1i[i\ne 0]<br>$$</p>
+<p>当 $i=0$ 时，$\frac 10 \times 0^*=0$。</p>
+<hr>
+<p>一个例子</p>
+<p>$$<br>n&lt;m,\text{ we have}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>  &amp;\sum_k\sum_i^n\sum_j^m ij[(i,j)=k]\\<br>  =&amp;\sum_k k^3\sum_{ik\le n}\sum_{jk\le m}ij\sum_{dk\le n}\mu(d)[d|i][d|j]\\<br>  =&amp;\sum_k k^3\sum_{dk\le n}\mu(d)d^2S\left(\frac{n}{kd}\right)S\left(\frac{m}{kd}\right)\\<br>  =&amp;\sum_T \sum_{k|T}\mu\left(\frac Tk\right)kS\left(\frac nT\right)S\left(\frac mT\right)\\<br>  =&amp;\sum_T T^2S\left(\frac nT\right)S\left(\frac mT\right)\varphi(T)<br>\end{aligned}<br>$$</p>
+<p>一般来说，逻辑清晰的离散数学家们倾向于使用 $ik\le n$ 这样的表达而不是使用 $i\le \lfloor\frac nk\rfloor$ 这种既累赘又让人难以一眼看出意义（因为下取整）的表达。这样的好处还有，方便了第三行到第四行令 $T=dk$ 的枚举，它在和式中会变得如此自然：只是交换了一个和号。</p>
+<p>这样一个例子也许是过于复杂的，我们来看一些简单的例子来见识一下上述规范有多么强大、多么易于操作。</p>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p>在 Miskcoo 的著名文章 <a href="http://blog.miskcoo.com/2015/12/inversion-magic-binomial-inversion" target="_blank" rel="noopener">反演魔术：反演原理及二项式反演</a> 中，其中的某一步用到了一个和号的交换</p>
+<blockquote>
+<p>$$<br>\sum_{i=0}^n b_{ni} \sum_{j=0}^i a_{ij}f_j<br>= \sum_{i=0}^n f_i \sum_{j=i}^n b_{nj}a_{ji}<br>$$</p>
+</blockquote>
+<p>看起来很云里雾里？呵呵，虽然 Miskcoo 肯定熟悉了这样的和号交换，但为了照顾初学者，他只好特地用矩阵把求和项大概写了出来，用以向大家说明这个变换的正确性。这样一来确实非常直观了。</p>
+<p>不！这太麻烦了，完全不是一个追求简洁的离散数学家的作风，下面我们使用艾弗森记号来完成这个变换</p>
+<p>$$<br>\begin{aligned}<br>  \sum_{i=0}^n b_{ni} \sum_{j=0}^i a_{ij}f_j<br>  &amp;=\sum_{i=0}^n b_{ni} \sum_{j=0}^n a_{ij}f_j[j\le i]\\<br>  &amp;=\sum_{0\le j\le n}f_j\sum_{0\le i\le n}a_{ij}b_{ni}[i\ge j]\\<br>  &amp;=\sum_{0\le j\le n}f_j\sum_{j\le i\le n}a_{ij}b_{ni}\\<br>  &amp;=\sum_{0\le i\le n}f_i\sum_{i\le j\le n}a_{ji}b_{nj}<br>\end{aligned}<br>$$</p>
+<p>注意到了吗？原本的 $j$ 的上标有 $i$ 这使得我们根本无法直接处理和式。但是运用艾弗森括号，我们把求和指标放入和式中，这使得我们的操作变得更加代数化：尤其是当交换 $i,j$ 后，把原本对 $j$ 的限制当成了对 $i$ 的限制来操作，不使用艾弗森括号是很难完成的。</p>
+<p>通过这个例子，我们看到了一个独特而美妙的事实：艾弗森括号在合适的时候可以任意地从和式上移上移下！</p>
+<p>什么？这个更麻烦？不不不，这每一步都是一个小学三年级的孩子可以看懂的，所以当你熟练后，别人用了 30 秒写了个矩阵，你三秒就已经看出来结果是什么了！</p>
+<hr>
+<p>我们再来看一个例子，杜教筛的递归推导过程。一般人们会这么推</p>
+<blockquote>
+<p>$$<br>\begin{aligned}<br>  \sum_{i=1}^{n}(g \times f)(i)<br>  &amp;=\sum_{i=1}^{n} \sum_{d|i} g(d) f\left(\frac{i}{d}\right)\\<br>  &amp;=\sum_{d=1}^{n} g(d) \sum_{d|i} f\left(\frac{i}{d}\right)\\<br>  &amp;=\sum_{d=1}^{n} g(d) \sum_{i=1}^{n / d} f(i)\\<br>  &amp;=\sum_{d=1}^{n} g(d) S\left(\frac{n}{d}\right)<br>\end{aligned}<br>$$</p>
+</blockquote>
+<p>面倒くさいな！QwQ</p>
+<p>$$<br>\begin{aligned}<br>\sum_{1\le i\le n}(f\times g)(i)<br>&amp;=\sum_{ij\le n}f(i)g(j)\\<br>&amp;=\sum_{1\le i\le n}g(i)\sum_{j\le n/i}f(j)\\<br>&amp;=\sum_{1\le i\le n}g(i)F\left(\left\lfloor\frac{n}{i}\right\rfloor\right)<br>\end{aligned}<br>$$</p>
+<p>是不是一步到位了？真正的推导只是一个和式交换（你要注意到第一行 $ij\le n$ 的那个和号实际上枚举了两个求和指标 $i,j$ ，换句话说其实是两个和号，只不过并在一起）。到这里你可能注意到了，有时我们也会写 $j\le n/i$ 这样的形式，这是<strong>为了强调前缀和的形式</strong>。</p>
+<hr>
+<p>再来看一个有名的例子，我以前文章中用到过</p>
+<p>$$<br>\sum_{m|n}\sum_{k|m} f(k,m)=\sum_{k|n}\sum_{l|\frac{n}{k}}f(k,kl)<br>$$</p>
+<p>我跟你说，你如果不用艾弗森括号能在 $5$ 行内证明这个式子——那就——那就能证明吧（喂！）</p>
+<p>证明在这里</p>
+<p>$$<br>\text{LHS}=\sum_{j,l}\sum_{k,m&gt;0}f(k,m)[n=jm][m=kl]=\sum_{j}\sum_{k,l&gt;0}f(k,kl)[n=jkl]<br>$$</p>
+<p>$$<br>\text{RHS}=\sum_{j,m}\sum_{k,l&gt;0}f(k,kl)[n=jk][n/k=ml]=\sum_{m}\sum_{k,l&gt;0}f(k,kl)[n=mlk]<br>$$</p>
+<p>我至今无法熟悉地运用这个变换技巧，幸好题目里用的少（躺）</p>
+<p>举了好多例子呢，但其实还有很多东西没讲，比如艾弗森记号的加减法如何优化我们的做题： $[i\ge j]=[i&gt;j]+[i=j]$ 这样的，可以分配律展开下简化运算……</p>
+<p>还可以枚举 $\min,\max$ 之类的……反正这类东西其实技巧不少，要仔细地谈可能也不简单。</p>
+<p>那么今天就到这里了，以上。</p>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/element-iv.html#post-footer" class="postShorten-excerpt_link link">
+                                评论和共享
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
     <div class="pagination-bar">
     <ul class="pagination">
         
