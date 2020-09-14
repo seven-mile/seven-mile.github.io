@@ -29,7 +29,7 @@
         
     
     
-        <meta property="og:image" content="https://gravatar.com/avatar/2a03ee06efc88ddf75b83105e6cbade4?s=200"/>
+        <meta property="og:image" content="https://gravatar.loli.net/avatar/2a03ee06efc88ddf75b83105e6cbade4?s=200"/>
     
     
     
@@ -69,7 +69,7 @@
                 href="#about">
         
         
-            <img class="header-picture" src="https://gravatar.com/avatar/2a03ee06efc88ddf75b83105e6cbade4?s=200" alt="作者的图片"/>
+            <img class="header-picture" src="https://gravatar.loli.net/avatar/2a03ee06efc88ddf75b83105e6cbade4?s=200" alt="作者的图片"/>
         
         </a>
     
@@ -87,7 +87,7 @@
         
             <div class="sidebar-profile">
                 <a href="/#about">
-                    <img class="sidebar-profile-picture" src="https://gravatar.com/avatar/2a03ee06efc88ddf75b83105e6cbade4?s=200" alt="作者的图片"/>
+                    <img class="sidebar-profile-picture" src="https://gravatar.loli.net/avatar/2a03ee06efc88ddf75b83105e6cbade4?s=200" alt="作者的图片"/>
                 </a>
                 <h4 class="sidebar-profile-name">7mile</h4>
                 
@@ -175,21 +175,21 @@
     <section class="postShorten-group main-content-wrap">
     
     
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
-                        <a class="link" href="/季冬廿二日夜手录.html">
-                            季冬廿二日夜手录
+                        <a class="link" href="/hdu-6593.html">
+                            奇妙多项式与求和综合：HDU6593
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2020-01-16T22:46:51+08:00">
+    <time itemprop="datePublished" datetime="2020-09-14T22:31:58+08:00">
 	
-		    1月 16, 2020
+		    9月 14, 2020
     	
     </time>
     
@@ -197,14 +197,66 @@
 
             </div>
             
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <div class="aplayer" data-id="17250844" data-server="netease" data-type="song">
-</div>
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>$n,q\le 3\times10^5$，要你对 $q$ 组询问 $(a,b,c,d)$ 回答</p>
+<p>$$<br>\frac{d}{c+e^{ax+b}}<br>$$</p>
+<p>在 $x_0=-b/a$ 处的泰勒展开 $(x-x_0)^n$ 项系数。</p>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>作代换 $t=ax+b$，不难发现答案就是 $[t^n]a^n\cdot\frac{d}{c+e^t}$ ，那么 $a,b,d$ 都处理完了。</p>
+<p>考虑求 $[x^n]\frac{1}{c+e^x}$ 。</p>
+<h3 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1"></a>Method 1</h3><p>这是我的方法，比较直来直去，但也用到了不少有意思的东西。</p>
+<p>先是套路推式子，对于分式我们肯定想着用广义二项式定理或者本质相同的东西去弄，也就是必须要弄成 $\frac{1}{1-P(x)}$ 的形式。我习惯几乎无副作用的乘除法，所以就是这么推的：</p>
+<p>$$<br>\text{Origin}=\frac{1}{c}\cdot\frac{1}{1-(-c^{-1}e^{ax+b})}<br>$$<br>$$<br>\frac{1}{1-(-c^{-1}e^{x})}=\sum_i^\infty (-1/c)^{i}e^{ix}<br>$$</p>
+<p>取 $n$ 次项系数，就是 $e^{ix}\to\frac{i^n}{n!}$，就变成关于 $-\frac1c$ 的一个无穷级数求和</p>
+<p>$$<br>\frac{1}{n!}\sum_i^\infty(-1/c)^i\cdot i^n<br>$$</p>
+<p>这个东西先看成<a href="https://zhuanlan.zhihu.com/p/53597530" target="_blank" rel="noopener">多项式乘等比数列的求和</a>。我们有个结论就是对于 $n$ 次多项式 $f(x)$ $\sum f(x)q^x=g(x)q^x-g(0)$ ，其中 $g(x)$ 也是 $n$ 次多项式。只要取 $q=-1/c,f(x)=x^n$ 就是我们要求的。而再取 $x\to\infty$ ，$q^x$ 也莫得了，我们求的其实就是 $-g(0)$ 。</p>
+<p>对于 $g$ ，我们根据上式差分可以得到递推式：</p>
+<p>$$<br>g(i+1)=(-c)(g(i)+i^n)<br>$$</p>
+<p>然后展开递归式，一直到能用 $kg(0)+b$ 的形式表示为止，考虑每一项的贡献，可以容易地将它写成和式</p>
+<p>$$<br>g(i)=(-c)^ig(0)+\sum_{1\le j\le i}(-c)^{i-j+1}j^n<br>$$</p>
+<p>另外我们把它看作 $n$ 次多项式 $g(x)$ ，它的 $n+1$ 次差分必为 $0$ ，也就是说</p>
+<p>$$<br>\sum_{i=0}^{k+1}{(-1)}^{k+1-i}\binom{k+1}{i}g(i)=0<br>$$</p>
+<p>这样总共集齐了 $n+1$ 个方程，或者反过来说，我们把所有 $g(i)$ 都写成了 $kg(0)+b$ 的形式，代入最后一个方程就能解出我们的答案 $g(0)$ 。</p>
+<p>那么接下来进行代入：</p>
+<p>$$<br>k_{\text{Left}}=\sum_{i=0}^{n+1}(-1)^{n+1-i}\binom{n+1}{i}(-c)^i=(-c-1)^{n+1}<br>$$</p>
+<p>非常优美！刚好凑出一个二项式定理，让我们信心大增。</p>
+<p>接下来的式子呢？</p>
+<p>$$<br>b_{\text{Right}}=\sum_{i=0}^{n+1}(-1)^{n+1-i}\binom{n+1}{i}\sum_{j=1}^i(i-j+1)^n(-c)^j<br>$$</p>
+<p>不难发现它可以视作项为 $(-c)^j$ 的多项式，等下我们就可以用多项式多点求值了，一大心头之患解决了。那么接下来就是求系数，求系数的话肯定要更换求和顺序，把 $j$ 先枚举。</p>
+<p>$$<br>\sum_{j=1}^{n+1}(-c)^j\sum_{i=j}^{n+1}(-1)^{n+1-i}\binom{n+1}{i}(i-j+1)^p<br>$$</p>
+<p>我们要求的就是第二个和号起的那截了，注意到它是个卷积的形式，NTT 出来就好了。</p>
+<p>然后 $b/k$ 就是我们的初步答案（答案是 $-g(0)$，别忘了那个负号），后续还要乘上 $a^n,\frac{1}{n!}$ 等等因子，别漏了，不然直接自闭。</p>
+<p>复杂度的话，对于 $k$，可以每个 $c$ 用 $\mathcal O(\lg n)$ 求；$b$ 必须整体地跑多点求值，但依然可以 $\mathcal O(q\lg^2n)$ 求。总复杂度 $\mathcal O(q\lg^2n)$</p>
+<h3 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2"></a>Method 2</h3><blockquote>
+<p>事情其实远没有那样困难</p>
+<p>——只要你能查书（大雾）</p>
+</blockquote>
+<p>首先我们知道上面所说的 <strong>多项式乘等比数列的求和</strong> 其实就是多重对数函数的特殊情形……</p>
+<p>那篇文章其实是我年少无知时写的，不过那都已经过去了。</p>
+<p>文章末尾，当时留了几个悬念的式子，自己都不太懂有什么用的式子，谁能想到今天它就派上用场了呢？</p>
+<p><strong>上主菜！</strong></p>
+<p>$$<br>{\rm Li}<em>{-n}(z)={1\over (1-z)^{n+1}}\sum</em>{k=0}^{n-1}\left\langle{n\atop k}\right\rangle z^{n-k}<br>$$</p>
+<p>嘛，这个式子其实是我直接查维基百科的“多重对数”词条得到的。</p>
+<p>其中 $\displaystyle\left\lang {n\atop k}\right\rang$，大家都读过《具体数学》，应该知道指的就是欧拉数。</p>
+<p>你知道欧拉数咋求吗？其实就是对幂函数做二项式反演。</p>
+<p>$$<br>\left\lang {n\atop k}\right\rang=\sum_{i=0}^k (-1)^i\binom{n+1}{i}(k+1-i)^n<br>$$</p>
+<p>喂，你小子，我怎么看你这么眼熟？（草）</p>
+<p>嗯，这个就是其中一个 $b$ ，一样地做卷积就能做了。</p>
+<h3 id="Method-3"><a href="#Method-3" class="headerlink" title="Method 3"></a>Method 3</h3><p><a href="https://jkloverdcoi.github.io/2020/07/25/Hdu-6593-Coefficient/" target="_blank" rel="noopener">链接</a></p>
+<p>jklover 桑的做法，他给的第二种“玄学做法”就是我以前的式子，我已经给出解释了，看到这篇题解的时候我还挺惊讶的，原来早有人抢先我一步做出了这种做法，虽然暂时不知道是谁想出来的。</p>
+<p>而第一种是所谓的“靠谱”做法，用加减而不是乘除凑结构还是蛮值得学习的，确实有时候能构造出更好的结构，但是后面观察出就是斯特林数的生成函数什么的还是算了吧？無理無理！</p>
+<h3 id="Method-4"><a href="#Method-4" class="headerlink" title="Method 4"></a>Method 4</h3><p>如果在一开始接着使用乘除，到无穷级数求和那一步的时候把 $k^n$ 采用第二类斯特林数展开为下降幂，好像也能做，细节我没有推了。</p>
+<h1 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h1><p>你不会想看的。（qi shi shi hai mei xie）</p>
+
                     
-                        <a href="/季冬廿二日夜手录.html" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
                         
+
+                    
+                    
+                        <p>
+                            <a href="/hdu-6593.html#post-footer" class="postShorten-excerpt_link link">
+                                评论和共享
+                            </a>
+                        </p>
                     
                 </div>
             
@@ -252,7 +304,7 @@
             <i class="fa fa-remove"></i>
         </div>
         
-            <img id="about-card-picture" src="https://gravatar.com/avatar/2a03ee06efc88ddf75b83105e6cbade4?s=200" alt="作者的图片"/>
+            <img id="about-card-picture" src="https://gravatar.loli.net/avatar/2a03ee06efc88ddf75b83105e6cbade4?s=200" alt="作者的图片"/>
         
             <h4 id="about-card-name">7mile</h4>
         
