@@ -21,7 +21,7 @@
 <meta property="og:site_name" content="7mile">
 <meta property="og:description" content="Description$n,q\le 3\times10^5$，要你对 $q$ 组询问 $(a,b,c,d)$ 回答 $$\frac{d}{c+e^{ax+b}}$$ 在 $x_0=-b/a$ 处的泰勒展开 $(x-x_0)^n$ 项系数。 Analysis作代换 $t=ax+b$，不难发现答案就是 $[t^n]a^n\cdot\frac{d}{c+e^t}$ ，那么 $a,b,d$ 都处理完了。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-09-14T16:08:49.499Z">
+<meta property="og:updated_time" content="2020-11-06T06:32:44.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="奇妙多项式与求和综合：HDU6593">
 <meta name="twitter:description" content="Description$n,q\le 3\times10^5$，要你对 $q$ 组询问 $(a,b,c,d)$ 回答 $$\frac{d}{c+e^{ax+b}}$$ 在 $x_0=-b/a$ 处的泰勒展开 $(x-x_0)^n$ 项系数。 Analysis作代换 $t=ax+b$，不难发现答案就是 $[t^n]a^n\cdot\frac{d}{c+e^t}$ ，那么 $a,b,d$ 都处理完了。">
@@ -228,6 +228,8 @@
 <h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>作代换 $t=ax+b$，不难发现答案就是 $[t^n]a^n\cdot\frac{d}{c+e^t}$ ，那么 $a,b,d$ 都处理完了。</p>
 <p>考虑求 $[x^n]\frac{1}{c+e^x}$ 。</p>
 <h3 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1"></a>Method 1</h3><p>这是我的方法，比较直来直去，但也用到了不少有意思的东西。</p>
+<a id="more"></a>
+
 <p>先是套路推式子，对于分式我们肯定想着用广义二项式定理或者本质相同的东西去弄，也就是必须要弄成 $\frac{1}{1-P(x)}$ 的形式。我习惯几乎无副作用的乘除法，所以就是这么推的：</p>
 <p>$$<br>\text{Origin}=\frac{1}{c}\cdot\frac{1}{1-(-c^{-1}e^{ax+b})}<br>$$<br>$$<br>\frac{1}{1-(-c^{-1}e^{x})}=\sum_i^\infty (-1/c)^{i}e^{ix}<br>$$</p>
 <p>取 $n$ 次项系数，就是 $e^{ix}\to\frac{i^n}{n!}$，就变成关于 $-\frac1c$ 的一个无穷级数求和</p>
@@ -317,7 +319,7 @@
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen">
                 <i class="fa fa-share-alt" aria-hidden="true"></i>
             </a>
         </li>
@@ -333,7 +335,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -399,7 +401,7 @@
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen">
                 <i class="fa fa-share-alt" aria-hidden="true"></i>
             </a>
         </li>
@@ -415,7 +417,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
