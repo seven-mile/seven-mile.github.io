@@ -188,6 +188,213 @@
     <section class="postShorten-group main-content-wrap">
     
     
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link" href="/xviii-open-cup-egp-hprob.html">
+                            H.Hill and Subhill [XVIII Open Cup EGP]
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2021-01-26T13:47:44+08:00">
+	
+		    1月 26, 2021
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>寒假训练题，比赛全名 XVIII Open Cup named after E.V. Pankratiev. Eastern Grand Prix。</p>
+<h1 id="description">Description</h1>
+<p>在三维整点空间 <span class="math inline">\(E\)</span> 中，每个整点存了个数字，一开始数字都是 <span class="math inline">\(0\)</span>，每次对这样一个区域 <span class="math inline">\(S(x,y,z,a)\)</span> 进行两种操作</p>
+<ul>
+<li><span class="math inline">\(M\)</span> 操作 所有整点上的数字 <span class="math inline">\(+1\)</span></li>
+<li><span class="math inline">\(Q\)</span> 操作 求所有整点上的数字和</li>
+</ul>
+<p><span class="math inline">\(M\)</span> 操作全部做完后才会有 <span class="math inline">\(Q\)</span> 操作。</p>
+<p><span class="math display">\[
+E:=\{(x,y,z)|1\le z\le y\le x\le n\},
+\]</span></p>
+<p><span class="math display">\[
+S(x,y,z,a):=\{(x+u,y+v,z+w)|0\le w\le v\le u&lt; a\}.
+\]</span></p>
+<p><span class="math display">\[
+n\le 100,\quad |M|\le 10^5,\quad |Q|\le 10^5.
+\]</span></p>
+                    
+                        <a href="/xviii-open-cup-egp-hprob.html" class="postShorten-excerpt_link link">
+                            阅读全文
+                        </a>
+                        
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link" href="/week-problemset-201205.html">
+                            WEEK201205
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2020-12-05T02:18:53+08:00">
+	
+		    12月 05, 2020
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="AGC010C"><a href="#AGC010C" class="headerlink" title="AGC010C"></a>AGC010C</h1><p>先找个非叶子作为根，（把 $n=2$ 判掉），然后考虑一个等效次数 $f(u)$，就是相当于一个节点和儿子必须满足方程：$\exists,x:f(u)=a[u]-x=sum-2x$ ，其中 $x$ 是对当前节点的等效情形的操作次数。这样对于每个经过 $u$ 的路径就可以合理地分配给各个儿子，从而分配到最后的叶子。于是 dfs 一遍判每个节点的解 $x$ 是否存在就做完了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//　静かな海</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dbg(x, y...) fprintf(stderr, x, y)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pline() (dbg(<span class="meta-string">"Passing Line #%d in Func [%s]"</span>, __LINE__, __FUNCTION__))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">rd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> x=<span class="number">0</span>,c,f=<span class="number">1</span>;<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c=getchar()))<span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">for</span>(;<span class="built_in">isdigit</span>(c);c=getchar())x=x*<span class="number">10</span>+c-<span class="string">'0'</span>;<span class="keyword">return</span> x*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span>+<span class="number">3</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, a[N], f[N], d[N];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; G[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> fa)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (d[u] == <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">void</span>(f[u] = a[u]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> sum = <span class="number">0</span>, mx = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> v:G[u]) <span class="keyword">if</span> (v^fa) &#123;</span><br><span class="line">    dfs(v, u);</span><br><span class="line">    sum += f[v], mx = max(mx, f[v]);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  f[u] = <span class="number">2</span>*a[u] - sum;</span><br><span class="line">  <span class="keyword">if</span> (a[u] &gt; sum || a[u] &lt; mx || f[u] &lt; <span class="number">0</span>)</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"NO"</span>), <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  n = rd();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++) a[i] = rd();</span><br><span class="line">  <span class="keyword">if</span> (n == <span class="number">2</span>) <span class="keyword">return</span> <span class="number">0</span> * <span class="built_in">puts</span>(a[<span class="number">1</span>] == a[<span class="number">2</span>] ? <span class="string">"YES"</span> : <span class="string">"NO"</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;n; i++) &#123;</span><br><span class="line">    <span class="keyword">int</span> u = rd(), v = rd();</span><br><span class="line">    G[u].push_back(v), G[v].push_back(u);</span><br><span class="line">    d[u]++, d[v]++;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> rt;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    <span class="keyword">if</span> (d[i] &gt; <span class="number">1</span>) &#123; rt = i; <span class="keyword">break</span>; &#125;</span><br><span class="line">  </span><br><span class="line">  dfs(rt, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">puts</span>(f[rt] ? <span class="string">"NO"</span> : <span class="string">"YES"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="AGC011D"><a href="#AGC011D" class="headerlink" title="AGC011D"></a>AGC011D</h1><p>有点水，推一推或者直接打表都可以发现每次要么第一个数取反要么整体左移并取反，<br>以至于很快尾部出现 BABA 型循环节，最后把所有数字顶掉，形成 1~2 周期的循环，<br>于是 bitset 暴力模拟一下即可。</p>
+<p>不知道为啥 47 个点就是过不去，WA，就放这儿吧，反正只有我自己看这文章，懒得仔细看了……</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//　静かな海</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dbg(x, y...) fprintf(stderr, x, y)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pline() (dbg(<span class="meta-string">"Passing Line #%d in Func [%s]"</span>, __LINE__, __FUNCTION__))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">rd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> x=<span class="number">0</span>,c,f=<span class="number">1</span>;<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c=getchar()))<span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">for</span>(;<span class="built_in">isdigit</span>(c);c=getchar())x=x*<span class="number">10</span>+c-<span class="string">'0'</span>;<span class="keyword">return</span> x*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span>+<span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, k;</span><br><span class="line"><span class="built_in">bitset</span>&lt;200000&gt; b;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  n = rd(), k = rd();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">    b[i] = getchar() == <span class="string">'B'</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">int</span> tg = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=k &amp;&amp; i&lt;=<span class="number">2</span>*n+<span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (b[<span class="number">0</span>] ^ tg) b&gt;&gt;=<span class="number">1</span>, tg ^= <span class="number">1</span>, b[n<span class="number">-1</span>] = tg;</span><br><span class="line">    <span class="keyword">else</span> b[<span class="number">0</span>].flip();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (<span class="number">2</span>*n+<span class="number">1</span> &lt; k) &#123;</span><br><span class="line">    <span class="keyword">int</span> rem = k - <span class="number">2</span>*n - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (!(b[<span class="number">0</span>] ^ tg)) tg ^= rem &amp; <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">    <span class="built_in">putchar</span>((b[i]^tg) ? <span class="string">'B'</span> : <span class="string">'A'</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Over"><a href="#Over" class="headerlink" title="Over"></a>Over</h1><p>一个国家有 $N$ 个村庄，第 $i$ 个村庄有一个奇妙的权值 $A_i$，以及另一个奇妙的权值 $B_i$。 其中 $B_i=\sum_j^i A_j$。 我们保证 $B_N=0$。</p>
+<p>现在要从任意一个村庄出发，遍历除起点外任意不少于$1$个村庄，之后回到起始村庄。当从第$i$个村庄走到第$j$个村庄的时候，贡献是$\dfrac{(A_i−A_j)B_iB_j}{2A_iA_j}$。</p>
+<p>假设遍历顺序是 $P_1,P_2,P_3,…,P_k,P_{k+1}$（当然，由于起始位置必须相同，这里 $P_{k+1}=P_1$），他希望存在一个 $2\le i\le k$，使得对于任意 $j&lt;i$, 都满足 $B_{P_j}\le B_{P_{j+1}}$；而对于任意 $k\ge j\ge i$, 都满足$B_{P_j}\ge B_{P_{j+1}}$。</p>
+<p>换句话说，$B$ 权值在到达某个村庄之前是单调不降的，而之后又是单调不增的。在这个限制下最大化贡献和。</p>
+<hr>
+<p>$$<br>\frac{(A_i−A_j)B_iB_j}{2A_iA_j}=\frac12\left(B_i\frac{B_j}{A_j}-B_j\frac{B_i}{A_i}\right)<br>$$</p>
+<p>于是求凸包面积即可</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// gugu</span></span><br></pre></td></tr></table></figure>
+
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/week-problemset-201205.html#post-footer" class="postShorten-excerpt_link link">
+                                评论和共享
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link" href="/week-problemset-201129.html">
+                            WEEK201129
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2020-11-30T17:46:13+08:00">
+	
+		    11月 30, 2020
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="hdu6438-buy-and-resell">HDU6438 Buy and Resell</h1>
+<p>这个题目挺有意思的，值得记录下来。和以前<a href="http://codeforces.com/contest/865/problem/D" target="_blank" rel="noopener">一道CF</a>一样。它们都是考虑一种“不关心具体方案”时的修改，即利用式子来进行“反悔”。</p>
+<h1 id="hdu6439-congruence-equation">HDU6439 Congruence equation</h1>
+<p>记对参数 <span class="math inline">\(m\)</span>，这样的数列 <span class="math inline">\(\{C_k\}\)</span> 的个数为 <span class="math inline">\(f(m)\)</span>：</p>
+<ul>
+<li>长度为 <span class="math inline">\(k\)</span></li>
+<li>对某些位置限制了必须为某值，而其它位置可以在有限域 <span class="math inline">\(F_m\)</span> 中任选</li>
+<li><span class="math inline">\(\sum_{1\le i\le k}C_ix_i\equiv1\pmod m\)</span>，其中 <span class="math inline">\(x_i\)</span> 是自由变量，这个方程要有整数解</li>
+</ul>
+<p>你要计算 <span class="math inline">\(\sum_{m=1}^nf(m)\)</span>。</p>
+<p><span class="math inline">\(T\le100,k\le50,n\le10^9\)</span>，但最多对<span class="math inline">\(10\)</span>组数据有 <span class="math inline">\(n\ge10^6\)</span>。</p>
+<hr>
+<p>首先入手点当然是那个不定方程了，同余不用怕，多加一个系数为 <span class="math inline">\(m\)</span> 的变量之后就变成普通不定方程了。</p>
+<p>所以有解等价于 <span class="math inline">\(\gcd(C,m)=1\)</span> ，<span class="math inline">\(C\)</span> 是数列中所有数字的简记法。</p>
+<p>但是还有一些位置已经定了值，我们不妨把它们先拉出来，把它们的 <span class="math inline">\(\gcd\)</span> 设为 <span class="math inline">\(q\)</span>。并且令 <span class="math inline">\(k\to\text{the number of free var }c_i\)</span>。</p>
+<p>其实想到到这里应该就知道自己做完了这个不难的题目了，然而我却sb了，看到 <span class="math inline">\(\gcd=1\)</span> 还想不到反演……</p>
+<p>下面记枚举所有数列中不定的位置求和为 <span class="math inline">\(\sum_{C}\)</span>，实际上是 <span class="math inline">\(k\)</span> 个求和号，那么答案就是</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{1\le m\le n}\sum_{C}[(C,q,m)=1]
+&amp;=\sum_{1\le m\le n}\sum_{C}\sum_{d|(C,q,m)}\mu(d)\\
+&amp;=\sum_{d\le n}\mu(d)\sum_{m\le n}\sum_C[d|(C,q,m)]\\
+&amp;=\sum_{d\le n}\mu(d)[d|q]\sum_{m\le n}\left(\prod_{1\le h\le k}\sum_{1\le c_h\le m}[d|c_h]\right)\\
+&amp;=\sum_{d|q}\mu(d)\sum_{p\le \left\lfloor\large\frac nd\right\rfloor}p^k\\
+\end{aligned}
+\]</span></p>
+<p>这个式子好办，直接枚举因数，然后对于后面那个自然数幂和，暴力<span class="math inline">\(\mathcal O(k^2)\)</span>预处理伯努利数即可。由于 <span class="math inline">\(q\le n\le 10^9\)</span>，<span class="math inline">\(\mathcal O(k^2+k\sqrt q)\)</span> 是可以通过的。</p>
+<p>当然，此外还有一种情形更棘手些，对于 <span class="math inline">\(q=0\)</span> ，也就是没有限制，<span class="math inline">\(d|0\)</span> 是（要视为）恒成立的，也就是 <span class="math inline">\(d\)</span> 从 <span class="math inline">\(1\to n\)</span> 枚举。这个时候我们利用和杜教筛类似的交换和号方法可以直接得到</p>
+<p><span class="math display">\[
+=\sum_{1\le p\le n}p^k\sum_{dp\le n}\mu(d)
+\]</span></p>
+<p>后面那个是 <span class="math inline">\(M\left(\left\lfloor\frac nd\right\rfloor\right)\)</span>，可以杜教筛，因为显然杜教筛 <span class="math inline">\(M(n)\)</span> 时其实就会求出所有的 <span class="math inline">\(M\left(\left\lfloor\frac nd\right\rfloor\right)\)</span>。</p>
+<p>口胡一下复杂度 <span class="math inline">\(\mathcal O(k^2+k\sqrt n+n^{2/3})\)</span>。</p>
+<h1 id="hdu6440-dream">HDU6440 Dream</h1>
+<p>这个构造还是有点新奇的，幸好 fz 事构造大师hhh，于是我们的方案是这样的</p>
+<p><span class="math display">\[
+\forall x,y:x+y=1,x\times y=\min(x,y)+1
+\]</span></p>
+<p>其中本来是先想出了乘法，这样对幂就有</p>
+<p><span class="math display">\[
+a\ne0:a^0=1,\;a^1=1\times a=2,\;a^2=3,\;\cdots,\;a^{a-1}=a,\;a^a=a\cdots
+\]</span></p>
+<h1 id="hdu6442-gugu-convolution">HDU6442 GuGu Convolution</h1>
+<p>若 <span class="math inline">\(F(x)=\mathrm{EGF}\langle A^0,A^1,A^2,\cdots\rangle(x),G(x)=\mathrm{EGF}\left\langle 0,\left(\sqrt B\right)^1,0,\left(\sqrt B\right)^3,0,\left(\sqrt B\right)^5,\cdots\right\rangle(x)\)</span>，求 <span class="math inline">\(n![x^n](F\times G)(x)\)</span> 。</p>
+<hr>
+<p>比较水，但是很坑。根据 EGF 卷积，答案就是</p>
+<p><span class="math display">\[
+\sum_{k\text{ is odd}\atop 0\le k\le n}\binom nkA^{n-k}\left(\sqrt B\right)^{k}=\frac12[(A+\sqrt B)^n-(A-\sqrt B)^n]
+\]</span></p>
+<p>然后显然可以快速幂，有两个坑点</p>
+<ul>
+<li>写矩阵快速幂常数太大容易 T，原因是有很多冗余运算，对 <span class="math inline">\(0\)</span> 运算的那种。可以改成直接做线性变换，省去矩阵操作。</li>
+<li>模数任意，但是只要求 <span class="math inline">\(2\)</span> 的逆元，写个欧拉定理很不值；有个 trick：可以全程 <span class="math inline">\(\pmod{2p}\)</span> 然后最后换回去的答案是 <span class="math inline">\(\left\lfloor\dfrac{\rm ans}{2}\right\rfloor\)</span>。</li>
+</ul>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/week-problemset-201129.html#post-footer" class="postShorten-excerpt_link link">
+                                评论和共享
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
     <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
@@ -483,7 +690,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2020   <a href="/ ">7mile</a> . All Rights Reserved.
+        Copyrights &copy; 2021   <a href="/ ">7mile</a> . All Rights Reserved.
     </span>
     <p>
         Made in Northern Lights.
@@ -540,8 +747,8 @@
 <script>
     window.MathJax = {
         tex: {
-            inlineMath: [ ["$", "$"] ],
-            displayMath: [ ["$$","$$"] ],
+            inlineMath: [ ["$", "$"], ["\\(", "\\)"] ],
+            displayMath: [ ["$$","$$"], ["\\[", "\\]"] ],
             processEscapes: true
         },
         options: {
