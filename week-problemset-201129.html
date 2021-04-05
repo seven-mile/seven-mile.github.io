@@ -14,17 +14,17 @@
     
     
     <meta name="description" content="HDU6438 Buy and Resell 这个题目挺有意思的，值得记录下来。和以前一道CF一样。它们都是考虑一种“不关心具体方案”时的修改，即利用式子来进行“反悔”。 HDU6439 Congruence equation 记对参数 \(m\)，这样的数列 \(\{C_k\}\) 的个数为 \(f(m)\)：  长度为 \(k\) 对某些位置限制了必须为某值，而其它位置可以在有限域">
-<meta name="keywords" content="ProblemSet">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="WEEK201129">
 <meta property="og:url" content="https://7li.moe/week-problemset-201129.html">
 <meta property="og:site_name" content="7mile">
 <meta property="og:description" content="HDU6438 Buy and Resell 这个题目挺有意思的，值得记录下来。和以前一道CF一样。它们都是考虑一种“不关心具体方案”时的修改，即利用式子来进行“反悔”。 HDU6439 Congruence equation 记对参数 \(m\)，这样的数列 \(\{C_k\}\) 的个数为 \(f(m)\)：  长度为 \(k\) 对某些位置限制了必须为某值，而其它位置可以在有限域">
-<meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2021-01-26T12:20:45.487Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-30T09:46:13.000Z">
+<meta property="article:modified_time" content="2021-01-26T12:20:45.487Z">
+<meta property="article:author" content="7mile">
+<meta property="article:tag" content="ProblemSet">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WEEK201129">
-<meta name="twitter:description" content="HDU6438 Buy and Resell 这个题目挺有意思的，值得记录下来。和以前一道CF一样。它们都是考虑一种“不关心具体方案”时的修改，即利用式子来进行“反悔”。 HDU6439 Congruence equation 记对参数 \(m\)，这样的数列 \(\{C_k\}\) 的个数为 \(f(m)\)：  长度为 \(k\) 对某些位置限制了必须为某值，而其它位置可以在有限域">
     
     
         
@@ -37,11 +37,21 @@
     
 
     <!--STYLES-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-    <link rel="stylesheet" href="/assets/css/font-awesome.css">
-    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
-    <link rel="stylesheet" href="/assets/css/thumbs.css">
-    <link rel="stylesheet" href="/assets/css/7mile.css">
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+
+    
+<link rel="stylesheet" href="/assets/css/font-awesome.css">
+
+    
+<link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+
+    
+<link rel="stylesheet" href="/assets/css/thumbs.css">
+
+    
+<link rel="stylesheet" href="/assets/css/7mile.css">
+
     <!--STYLES END-->
     
 
@@ -62,7 +72,7 @@
 <header id="header" data-behavior="4">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
-        <a class="header-title-link" href="/ ">7mile</a>
+        <a class="header-title-link" href="/">7mile</a>
     </div>
     
         
@@ -103,7 +113,7 @@
                 <li class="sidebar-button">
                     
                         <a  class="sidebar-button-link "
-                             href="/ "
+                             href="/"
                             
                             title="Home"
                         >
@@ -212,7 +222,7 @@
         <div class="main-content-wrap">
             <!-- Main Content of Post -->
             <h1 id="hdu6438-buy-and-resell">HDU6438 Buy and Resell</h1>
-<p>这个题目挺有意思的，值得记录下来。和以前<a href="http://codeforces.com/contest/865/problem/D" target="_blank" rel="noopener">一道CF</a>一样。它们都是考虑一种“不关心具体方案”时的修改，即利用式子来进行“反悔”。</p>
+<p>这个题目挺有意思的，值得记录下来。和以前<a target="_blank" rel="noopener" href="http://codeforces.com/contest/865/problem/D">一道CF</a>一样。它们都是考虑一种“不关心具体方案”时的修改，即利用式子来进行“反悔”。</p>
 <h1 id="hdu6439-congruence-equation">HDU6439 Congruence equation</h1>
 <p>记对参数 <span class="math inline">\(m\)</span>，这样的数列 <span class="math inline">\(\{C_k\}\)</span> 的个数为 <span class="math inline">\(f(m)\)</span>：</p>
 <ul>
@@ -222,7 +232,7 @@
 </ul>
 <p>你要计算 <span class="math inline">\(\sum_{m=1}^nf(m)\)</span>。</p>
 <p><span class="math inline">\(T\le100,k\le50,n\le10^9\)</span>，但最多对<span class="math inline">\(10\)</span>组数据有 <span class="math inline">\(n\ge10^6\)</span>。</p>
-<hr>
+<hr />
 <p>首先入手点当然是那个不定方程了，同余不用怕，多加一个系数为 <span class="math inline">\(m\)</span> 的变量之后就变成普通不定方程了。</p>
 <p>所以有解等价于 <span class="math inline">\(\gcd(C,m)=1\)</span> ，<span class="math inline">\(C\)</span> 是数列中所有数字的简记法。</p>
 <p>但是还有一些位置已经定了值，我们不妨把它们先拉出来，把它们的 <span class="math inline">\(\gcd\)</span> 设为 <span class="math inline">\(q\)</span>。并且令 <span class="math inline">\(k\to\text{the number of free var }c_i\)</span>。</p>
@@ -255,7 +265,7 @@ a\ne0:a^0=1,\;a^1=1\times a=2,\;a^2=3,\;\cdots,\;a^{a-1}=a,\;a^a=a\cdots
 \]</span></p>
 <h1 id="hdu6442-gugu-convolution">HDU6442 GuGu Convolution</h1>
 <p>若 <span class="math inline">\(F(x)=\mathrm{EGF}\langle A^0,A^1,A^2,\cdots\rangle(x),G(x)=\mathrm{EGF}\left\langle 0,\left(\sqrt B\right)^1,0,\left(\sqrt B\right)^3,0,\left(\sqrt B\right)^5,\cdots\right\rangle(x)\)</span>，求 <span class="math inline">\(n![x^n](F\times G)(x)\)</span> 。</p>
-<hr>
+<hr />
 <p>比较水，但是很坑。根据 EGF 卷积，答案就是</p>
 <p><span class="math display">\[
 \sum_{k\text{ is odd}\atop 0\le k\le n}\binom nkA^{n-k}\left(\sqrt B\right)^{k}=\frac12[(A+\sqrt B)^n-(A-\sqrt B)^n]
@@ -270,7 +280,7 @@ a\ne0:a^0=1,\;a^1=1\times a=2,\;a^2=3,\;\cdots,\;a^{a-1}=a,\;a^a=a\cdots
 
             <!-- CC4 Copyright -->
             <!-- <p>
-                <a href="http://creativecommons.org/licenses/by-sa/4.0/" style="display: inline-block;" >
+                <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-sa/4.0/" style="display: inline-block;" >
                     <img src="https://img.shields.io/badge/License-CC%20BY--SA%204.0-brightgreen.svg?style=flat-square" alt="License: CC BY-SA 4.0">
                 </a>
             </p> -->
@@ -282,7 +292,7 @@ a\ne0:a^0=1,\;a^1=1\times a=2,\;a^2=3,\;\cdots,\;a^{a-1}=a,\;a^a=a\cdots
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">标签</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/ProblemSet/">ProblemSet</a>
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/ProblemSet/" rel="tag">ProblemSet</a>
 
             </div>
         
@@ -312,7 +322,7 @@ a\ne0:a^0=1,\;a^1=1\times a=2,\;a^2=3,\;\cdots,\;a^{a-1}=a,\;a^a=a\cdots
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen">
                 <i class="fa fa-share-alt" aria-hidden="true"></i>
             </a>
         </li>
@@ -328,7 +338,7 @@ a\ne0:a^0=1,\;a^1=1\times a=2,\;a^2=3,\;\cdots,\;a^{a-1}=a,\;a^a=a\cdots
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -341,7 +351,7 @@ a\ne0:a^0=1,\;a^1=1\times a=2,\;a^2=3,\;\cdots,\;a^{a-1}=a,\;a^a=a\cdots
         
             
                 <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
             
         
@@ -356,13 +366,13 @@ a\ne0:a^0=1,\;a^1=1\times a=2,\;a^2=3,\;\cdots,\;a^{a-1}=a,\;a^a=a\cdots
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2021   <a href="/ ">7mile</a> . All Rights Reserved.
+        Copyrights &copy; 2021   <a href="/">7mile</a> . All Rights Reserved.
     </span>
     <p>
         Made in Northern Lights.
     </p>
     <p>
-        UI powered by <a href="https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak">Tranquilpeak</a>, <a href="https://github.com/LouisBarranqueiro">Louis Barranqueiro</a>, Thanks a lot.
+        UI powered by <a target="_blank" rel="noopener" href="https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak">Tranquilpeak</a>, <a target="_blank" rel="noopener" href="https://github.com/LouisBarranqueiro">Louis Barranqueiro</a>, Thanks a lot.
     </p>
 </footer>
 
@@ -394,7 +404,7 @@ a\ne0:a^0=1,\;a^1=1\times a=2,\;a^2=3,\;\cdots,\;a^{a-1}=a,\;a^a=a\cdots
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen">
                 <i class="fa fa-share-alt" aria-hidden="true"></i>
             </a>
         </li>
@@ -410,7 +420,7 @@ a\ne0:a^0=1,\;a^1=1\times a=2,\;a^2=3,\;\cdots,\;a^{a-1}=a,\;a^a=a\cdots
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -486,13 +496,27 @@ a\ne0:a^0=1,\;a^1=1\times a=2,\;a^2=3,\;\cdots,\;a^{a-1}=a,\;a^a=a\cdots
 <!-- SCRIPTS OPTIONS END -->
 
 <!--SCRIPTS-->
+
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+
+
 <script src="/assets/js/jquery.js"></script>
+
+
 <script src="/assets/js/jquery.fancybox.js"></script>
+
+
 <script src="/assets/js/thumbs.js"></script>
+
+
 <script src="/assets/js/7mile.js"></script>
+
 <!--SCRIPTS END-->
 
 <script>

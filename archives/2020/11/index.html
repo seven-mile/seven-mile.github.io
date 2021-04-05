@@ -14,16 +14,16 @@
     
     
     <meta name="description" content="八轨宇宙的七里征途">
-<meta name="keywords" content="Math,RE">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="7mile">
 <meta property="og:url" content="https://7li.moe/archives/2020/11/index.html">
 <meta property="og:site_name" content="7mile">
 <meta property="og:description" content="八轨宇宙的七里征途">
-<meta property="og:locale" content="zh-cn">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="7mile">
+<meta property="article:tag" content="Math">
+<meta property="article:tag" content="RE">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="7mile">
-<meta name="twitter:description" content="八轨宇宙的七里征途">
     
     
         
@@ -36,11 +36,21 @@
     
 
     <!--STYLES-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-    <link rel="stylesheet" href="/assets/css/font-awesome.css">
-    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
-    <link rel="stylesheet" href="/assets/css/thumbs.css">
-    <link rel="stylesheet" href="/assets/css/7mile.css">
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+
+    
+<link rel="stylesheet" href="/assets/css/font-awesome.css">
+
+    
+<link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+
+    
+<link rel="stylesheet" href="/assets/css/thumbs.css">
+
+    
+<link rel="stylesheet" href="/assets/css/7mile.css">
+
     <!--STYLES END-->
     
 
@@ -61,7 +71,7 @@
 <header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
-        <a class="header-title-link" href="/ ">7mile</a>
+        <a class="header-title-link" href="/">7mile</a>
     </div>
     
         
@@ -102,7 +112,7 @@
                 <li class="sidebar-button">
                     
                         <a  class="sidebar-button-link "
-                             href="/ "
+                             href="/"
                             
                             title="Home"
                         >
@@ -212,7 +222,7 @@
             
                 <div class="postShorten-content" itemprop="articleBody">
                     <h1 id="hdu6438-buy-and-resell">HDU6438 Buy and Resell</h1>
-<p>这个题目挺有意思的，值得记录下来。和以前<a href="http://codeforces.com/contest/865/problem/D" target="_blank" rel="noopener">一道CF</a>一样。它们都是考虑一种“不关心具体方案”时的修改，即利用式子来进行“反悔”。</p>
+<p>这个题目挺有意思的，值得记录下来。和以前<a target="_blank" rel="noopener" href="http://codeforces.com/contest/865/problem/D">一道CF</a>一样。它们都是考虑一种“不关心具体方案”时的修改，即利用式子来进行“反悔”。</p>
 <h1 id="hdu6439-congruence-equation">HDU6439 Congruence equation</h1>
 <p>记对参数 <span class="math inline">\(m\)</span>，这样的数列 <span class="math inline">\(\{C_k\}\)</span> 的个数为 <span class="math inline">\(f(m)\)</span>：</p>
 <ul>
@@ -222,7 +232,7 @@
 </ul>
 <p>你要计算 <span class="math inline">\(\sum_{m=1}^nf(m)\)</span>。</p>
 <p><span class="math inline">\(T\le100,k\le50,n\le10^9\)</span>，但最多对<span class="math inline">\(10\)</span>组数据有 <span class="math inline">\(n\ge10^6\)</span>。</p>
-<hr>
+<hr />
 <p>首先入手点当然是那个不定方程了，同余不用怕，多加一个系数为 <span class="math inline">\(m\)</span> 的变量之后就变成普通不定方程了。</p>
 <p>所以有解等价于 <span class="math inline">\(\gcd(C,m)=1\)</span> ，<span class="math inline">\(C\)</span> 是数列中所有数字的简记法。</p>
 <p>但是还有一些位置已经定了值，我们不妨把它们先拉出来，把它们的 <span class="math inline">\(\gcd\)</span> 设为 <span class="math inline">\(q\)</span>。并且令 <span class="math inline">\(k\to\text{the number of free var }c_i\)</span>。</p>
@@ -255,7 +265,7 @@ a\ne0:a^0=1,\;a^1=1\times a=2,\;a^2=3,\;\cdots,\;a^{a-1}=a,\;a^a=a\cdots
 \]</span></p>
 <h1 id="hdu6442-gugu-convolution">HDU6442 GuGu Convolution</h1>
 <p>若 <span class="math inline">\(F(x)=\mathrm{EGF}\langle A^0,A^1,A^2,\cdots\rangle(x),G(x)=\mathrm{EGF}\left\langle 0,\left(\sqrt B\right)^1,0,\left(\sqrt B\right)^3,0,\left(\sqrt B\right)^5,\cdots\right\rangle(x)\)</span>，求 <span class="math inline">\(n![x^n](F\times G)(x)\)</span> 。</p>
-<hr>
+<hr />
 <p>比较水，但是很坑。根据 EGF 卷积，答案就是</p>
 <p><span class="math display">\[
 \sum_{k\text{ is odd}\atop 0\le k\le n}\binom nkA^{n-k}\left(\sqrt B\right)^{k}=\frac12[(A+\sqrt B)^n-(A-\sqrt B)^n]
@@ -307,41 +317,46 @@ a\ne0:a^0=1,\;a^1=1\times a=2,\;a^2=3,\;\cdots,\;a^{a-1}=a,\;a^a=a\cdots
             </div>
             
                 <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="SRM-545-div1-hard-SetAndSet"><a href="#SRM-545-div1-hard-SetAndSet" class="headerlink" title="SRM 545 div1 hard SetAndSet"></a>SRM 545 div1 hard SetAndSet</h1><p>有 $n\le50$ 个数 $V\le2^{20}$，要分成非空的两组，使得对每组把所有数 $\And$ 起来结果相同。求方案数。</p>
-<hr>
-<p>首先分位，对于全 $0/1$ 的位，随便分直接无视。此外就一定有 $0$ 了，所以必然是两个集合结果都为 $0$。（之前居然想半天没想到这一点，反省……）</p>
-<p>然后就可以转化成，两个集合必须都要有 $0$，发现这个不好做，但是反面很好做，所以考虑容斥。</p>
-<p>容斥就要对给定的一些位不合法，不合法意味着 $0$ 全去了某一边。所以在考虑多个位时，就是关于 $0$ 有交集的两个位都必须一起划分。</p>
+                    <h1 id="srm-545-div1-hard-setandset">SRM 545 div1 hard SetAndSet</h1>
+<p>有 <span class="math inline">\(n\le50\)</span> 个数 <span class="math inline">\(V\le2^{20}\)</span>，要分成非空的两组，使得对每组把所有数 <span class="math inline">\(\And\)</span> 起来结果相同。求方案数。</p>
+<hr />
+<p>首先分位，对于全 <span class="math inline">\(0/1\)</span> 的位，随便分直接无视。此外就一定有 <span class="math inline">\(0\)</span> 了，所以必然是两个集合结果都为 <span class="math inline">\(0\)</span>。（之前居然想半天没想到这一点，反省……）</p>
+<p>然后就可以转化成，两个集合必须都要有 <span class="math inline">\(0\)</span>，发现这个不好做，但是反面很好做，所以考虑容斥。</p>
+<p>容斥就要对给定的一些位不合法，不合法意味着 <span class="math inline">\(0\)</span> 全去了某一边。所以在考虑多个位时，就是关于 <span class="math inline">\(0\)</span> 有交集的两个位都必须一起划分。</p>
 <p>然后用 UFS 合并统计就好了。</p>
-<h1 id="Gym-101987G-Secret-Code"><a href="#Gym-101987G-Secret-Code" class="headerlink" title="Gym 101987G    Secret Code"></a>Gym 101987G    Secret Code</h1><p>实数区间 $[0,S\le1000]$ 上均匀随机三条线段的开始点，长度分别固定是 $w_1,w_2,w_3$，问：随机后，线段从左到右，第一条和第二条相交，第二条和第三条相交的概率。</p>
-<hr>
+<h1 id="gym-101987g-secret-code">Gym 101987G Secret Code</h1>
+<p>实数区间 <span class="math inline">\([0,S\le1000]\)</span> 上均匀随机三条线段的开始点，长度分别固定是 <span class="math inline">\(w_1,w_2,w_3\)</span>，问：随机后，线段从左到右，第一条和第二条相交，第二条和第三条相交的概率。</p>
+<hr />
 <p>反正是实数，就先考虑写个积分的式子看看。</p>
-<p>$$<br>\int_0^S \mathrm dl_1\int_{l_1}^{\min(l_1+w_1,S)}\mathrm dl_2\min(S-l_2-w_2,w_2)<br>$$</p>
+<p><span class="math display">\[
+\int_0^S \mathrm dl_1\int_{l_1}^{\min(l_1+w_1,S)}\mathrm dl_2\min(S-l_2-w_2,w_2)
+\]</span></p>
 <p>额，也不算很复杂……主要是，反正数值积分那么快，我何必操心它到底啥样呢.jpg</p>
 <p>当然，这个东西完全是分段线性的，而且形式摆在那儿了，我们不妨想想怎么直接求。</p>
-<p>先考虑 $l_1-l_2$ 平面，添个纵轴 $l_3$ ，我们看看哪些点是合法的。</p>
+<p>先考虑 <span class="math inline">\(l_1-l_2\)</span> 平面，添个纵轴 <span class="math inline">\(l_3\)</span> ，我们看看哪些点是合法的。</p>
 <p>对于前俩轴我们先想个范围，也就是这里积分上下限的限制，显然就是一个斜着的梯形。</p>
-<p>而第三条线段只需和第二条相交，也就是说只和 $l_2$ 有关，又是什么形状呢？还是个梯形 =、= 毕竟限制都是类似的。所以本质其实就是求俩四棱柱（底面是梯形，摆放方向互相垂直）的交的体积。</p>
-<p><img src="https://p.sda1.dev/0/e7d3ad2cca4acaba75128b08c12654b7/draft_gym101987g.png" alt></p>
-<p>如图所示，右上角是左边立体图的右视图，分别考虑 $S_1,S_2$ 两块对应的体积。</p>
-<p>$S_1$ 是个平行四边形，很好办，对应的左边棱柱是个直角三棱锥，也就是说关于 $l_2$ 是线性的，所以我们可以直接底面积乘高除以二，也就是 $w_1w_2\cdot\frac{w_1}2$ 这项。</p>
-<p>$S_2$ 是个梯形，看上去比较棘手，但是它对应的棱柱是个等高的东西，就是右视图上某一点对应的体积上的最高点和最低点的高度差是一定的，根据基础几何知识我们知道可以直接用这个高度差乘以底面积。底面积可以补成平行四边形减去一个等腰直角三角形，所以这部分贡献就是 $[(S-w_1)w_2-\frac12w_2^2]w_1$ 这项。</p>
-<p>整理一下就得到答案是 $w_1w_2\left(S-\frac{w_1+w_2}{2}\right)$，简单吧！别忘了考虑全排列嗷！可以枚举俩然后乘二计算。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//　静かな海</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dbg(x, y...) fprintf(stderr, x, y)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pline() (dbg(<span class="meta-string">"Passing Line #%d in Func [%s]"</span>, __LINE__, __FUNCTION__))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">rd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> x=<span class="number">0</span>,c,f=<span class="number">1</span>;<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c=getchar()))<span class="keyword">if</span>(c==<span class="string">'-'</span>)f=<span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">for</span>(;<span class="built_in">isdigit</span>(c);c=getchar())x=x*<span class="number">10</span>+c-<span class="string">'0'</span>;<span class="keyword">return</span> x*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e6</span>+<span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> w[<span class="number">5</span>];</span><br><span class="line"><span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">double</span>, <span class="keyword">int</span>&gt;&gt; v;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n = rd();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lf%lf%lf%lf"</span>, w+<span class="number">4</span>, w+<span class="number">1</span>, w+<span class="number">2</span>, w+<span class="number">3</span>);</span><br><span class="line">    w[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=<span class="number">3</span>; j++)</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> k=j+<span class="number">1</span>; k&lt;=<span class="number">3</span>; k++)</span><br><span class="line">        w[<span class="number">0</span>] += (<span class="number">2</span>*w[<span class="number">4</span>]-w[j]-w[k])*w[j]*w[k];</span><br><span class="line">    v.emplace_back(w[<span class="number">0</span>]/w[<span class="number">4</span>]/w[<span class="number">4</span>]/w[<span class="number">4</span>], i);</span><br><span class="line">  &#125;</span><br><span class="line">  sort(v.begin(), v.end());</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; x:v) <span class="built_in">printf</span>(<span class="string">"%d "</span>, x.second);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="易燃易爆杂题"><a href="#易燃易爆杂题" class="headerlink" title="易燃易爆杂题"></a>易燃易爆杂题</h1><p>构造一个正整数集合 $S\subset [4n]:|S|＝n$，$S$ 里每两个元素不互质但不整除。</p>
+<p>而第三条线段只需和第二条相交，也就是说只和 <span class="math inline">\(l_2\)</span> 有关，又是什么形状呢？还是个梯形 =、= 毕竟限制都是类似的。所以本质其实就是求俩四棱柱（底面是梯形，摆放方向互相垂直）的交的体积。</p>
+<p><img src="https://p.sda1.dev/0/e7d3ad2cca4acaba75128b08c12654b7/draft_gym101987g.png" /></p>
+<p>如图所示，右上角是左边立体图的右视图，分别考虑 <span class="math inline">\(S_1,S_2\)</span> 两块对应的体积。</p>
+<p><span class="math inline">\(S_1\)</span> 是个平行四边形，很好办，对应的左边棱柱是个直角三棱锥，也就是说关于 <span class="math inline">\(l_2\)</span> 是线性的，所以我们可以直接底面积乘高除以二，也就是 <span class="math inline">\(w_1w_2\cdot\frac{w_1}2\)</span> 这项。</p>
+<p><span class="math inline">\(S_2\)</span> 是个梯形，看上去比较棘手，但是它对应的棱柱是个等高的东西，就是右视图上某一点对应的体积上的最高点和最低点的高度差是一定的，根据基础几何知识我们知道可以直接用这个高度差乘以底面积。底面积可以补成平行四边形减去一个等腰直角三角形，所以这部分贡献就是 <span class="math inline">\([(S-w_1)w_2-\frac12w_2^2]w_1\)</span> 这项。</p>
+<p>整理一下就得到答案是 <span class="math inline">\(w_1w_2\left(S-\frac{w_1+w_2}{2}\right)\)</span>，简单吧！别忘了考虑全排列嗷！可以枚举俩然后乘二计算。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//　静かな海</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dbg(x, y...) fprintf(stderr, x, y)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pline() (dbg(<span class="meta-string">&quot;Passing Line #%d in Func [%s]&quot;</span>, __LINE__, __FUNCTION__))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">rd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> x=<span class="number">0</span>,c,f=<span class="number">1</span>;<span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c=<span class="built_in">getchar</span>()))<span class="keyword">if</span>(c==<span class="string">&#x27;-&#x27;</span>)f=<span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">for</span>(;<span class="built_in">isdigit</span>(c);c=<span class="built_in">getchar</span>())x=x*<span class="number">10</span>+c-<span class="string">&#x27;0&#x27;</span>;<span class="keyword">return</span> x*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e6</span>+<span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> w[<span class="number">5</span>];</span><br><span class="line">vector&lt;pair&lt;<span class="keyword">double</span>, <span class="keyword">int</span>&gt;&gt; v;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n = <span class="built_in">rd</span>();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%lf%lf%lf%lf&quot;</span>, w+<span class="number">4</span>, w+<span class="number">1</span>, w+<span class="number">2</span>, w+<span class="number">3</span>);</span><br><span class="line">    w[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=<span class="number">3</span>; j++)</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> k=j+<span class="number">1</span>; k&lt;=<span class="number">3</span>; k++)</span><br><span class="line">        w[<span class="number">0</span>] += (<span class="number">2</span>*w[<span class="number">4</span>]-w[j]-w[k])*w[j]*w[k];</span><br><span class="line">    v.<span class="built_in">emplace_back</span>(w[<span class="number">0</span>]/w[<span class="number">4</span>]/w[<span class="number">4</span>]/w[<span class="number">4</span>], i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">sort</span>(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>());</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; x:v) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, x.second);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="易燃易爆杂题">易燃易爆杂题</h1>
+<p>构造一个正整数集合 <span class="math inline">\(S\subset [4n]:|S|＝n\)</span>，<span class="math inline">\(S\)</span> 里每两个元素不互质但不整除。</p>
 <p>qwq先想想试试？</p>
-<hr>
+<hr />
 <p>= = 假如你和我一样在那里考虑素因子，那就面壁思过去（</p>
-<p>$S={2n+2,2n+4,\cdots,4n}$</p>
-<p>这应该是对于 $n&gt;1$ 的唯一解。</p>
+<p><span class="math inline">\(S=\{2n+2,2n+4,\cdots,4n\}\)</span></p>
+<p>这应该是对于 <span class="math inline">\(n&gt;1\)</span> 的唯一解。</p>
 <p>我太菜了，orzzz易燃</p>
 <p>感觉多想一会儿应该能想到的，自己还是太浮躁，而且不擅长应付这类“师出无名”的构造。</p>
 <p>什么时候再找 ATC 练练吧。</p>
-<h1 id="整点计数-cz-xuyixuan-2019"><a href="#整点计数-cz-xuyixuan-2019" class="headerlink" title="整点计数 cz_xuyixuan 2019"></a>整点计数 cz_xuyixuan 2019</h1><p>回来读 19 年集训队论文，没想到发现 xyx 写了以前一个令我印象深刻的题目的超级加强版的命题报告。</p>
-<p>关键在于 $a^2+b^2$ 的高斯整数分解 $(a+b\mathrm i)(a-b\mathrm i)$ ，这样的分解在不考虑乘上一些 $\omega_4^k$ 的因子的时候是唯一的，于是加法变成了乘法！</p>
-<p>咳咳，在 3b1b 找到了这个解法，要看前半部分不如直接看<a href="https://www.bilibili.com/video/av12131743/" target="_blank" rel="noopener">视频</a>吧。</p>
-<p>后半部分就是一个积性函数求和，用 $\min25$ 筛或洲阁筛解决。</p>
+<h1 id="整点计数-cz_xuyixuan-2019">整点计数 cz_xuyixuan 2019</h1>
+<p>回来读 19 年集训队论文，没想到发现 xyx 写了以前一个令我印象深刻的题目的超级加强版的命题报告。</p>
+<p>关键在于 <span class="math inline">\(a^2+b^2\)</span> 的高斯整数分解 <span class="math inline">\((a+b\mathrm i)(a-b\mathrm i)\)</span> ，这样的分解在不考虑乘上一些 <span class="math inline">\(\omega_4^k\)</span> 的因子的时候是唯一的，于是加法变成了乘法！</p>
+<p>咳咳，在 3b1b 找到了这个解法，要看前半部分不如直接看<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av12131743/">视频</a>吧。</p>
+<p>后半部分就是一个积性函数求和，用 <span class="math inline">\(\min25\)</span> 筛或洲阁筛解决。</p>
 
                     
                         
@@ -384,9 +399,9 @@ a\ne0:a^0=1,\;a^1=1\times a=2,\;a^2=3,\;\cdots,\;a^{a-1}=a,\;a^a=a\cdots
             </div>
             
                 <div class="postShorten-content" itemprop="articleBody">
-                    <p><a href="http://h.7li.moe:5212/#/s/rEH0" target="_blank" rel="noopener">课件</a></p>
+                    <p><a target="_blank" rel="noopener" href="http://h.7li.moe:5212/#/s/rEH0">课件</a></p>
 <p>学校好题交流时瞎写的，尽量照顾了线代水平不算高的选手，读起来难度应该不大。</p>
-<p>拟阵交也就这一类套路题，还想练练可以做 <a href="https://open.kattis.com/problems/rainbowgraph" target="_blank" rel="noopener">Rainbow Graph</a> 这题，比赛带上板子就好了。</p>
+<p>拟阵交也就这一类套路题，还想练练可以做 <a target="_blank" rel="noopener" href="https://open.kattis.com/problems/rainbowgraph">Rainbow Graph</a> 这题，比赛带上板子就好了。</p>
 <p>顺便把课件末尾的几篇资料也读了x</p>
 
                     
@@ -430,10 +445,12 @@ a\ne0:a^0=1,\;a^1=1\times a=2,\;a^2=3,\;\cdots,\;a^{a-1}=a,\;a^a=a\cdots
             </div>
             
                 <div class="postShorten-excerpt" itemprop="articleBody">
-                    <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>今年多校第一场的题哦</p>
-<p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6758" target="_blank" rel="noopener">传送门</a></p>
-<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>看到积分非常傻眼，而且题目里还声称“答案是有理数”，这自然引起我们的好奇。注意到分子分母其实是齐次的，所以多半是什么东西消掉了才这样的吧x</p>
-<p>上下都是 $4N,2N$ ，不妨只考虑一个 $N$，然后菜鸡的分析只会大暴力，最暴力的想法就是，呃，先换元试试看。$x=\frac{1}{\tau}$ 代换后</p>
+                    <h1 id="description">Description</h1>
+<p>今年多校第一场的题哦</p>
+<p><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=6758">传送门</a></p>
+<h1 id="analysis">Analysis</h1>
+<p>看到积分非常傻眼，而且题目里还声称“答案是有理数”，这自然引起我们的好奇。注意到分子分母其实是齐次的，所以多半是什么东西消掉了才这样的吧x</p>
+<p>上下都是 <span class="math inline">\(4N,2N\)</span> ，不妨只考虑一个 <span class="math inline">\(N\)</span>，然后菜鸡的分析只会大暴力，最暴力的想法就是，呃，先换元试试看。<span class="math inline">\(x=\frac{1}{\tau}\)</span> 代换后</p>
                     
                         <a href="/hdu-6758.html" class="postShorten-excerpt_link link">
                             阅读全文
@@ -460,13 +477,13 @@ a\ne0:a^0=1,\;a^1=1\times a=2,\;a^2=3,\;\cdots,\;a^{a-1}=a,\;a^a=a\cdots
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2021   <a href="/ ">7mile</a> . All Rights Reserved.
+        Copyrights &copy; 2021   <a href="/">7mile</a> . All Rights Reserved.
     </span>
     <p>
         Made in Northern Lights.
     </p>
     <p>
-        UI powered by <a href="https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak">Tranquilpeak</a>, <a href="https://github.com/LouisBarranqueiro">Louis Barranqueiro</a>, Thanks a lot.
+        UI powered by <a target="_blank" rel="noopener" href="https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak">Tranquilpeak</a>, <a target="_blank" rel="noopener" href="https://github.com/LouisBarranqueiro">Louis Barranqueiro</a>, Thanks a lot.
     </p>
 </footer>
 
@@ -530,13 +547,27 @@ a\ne0:a^0=1,\;a^1=1\times a=2,\;a^2=3,\;\cdots,\;a^{a-1}=a,\;a^a=a\cdots
 <!-- SCRIPTS OPTIONS END -->
 
 <!--SCRIPTS-->
+
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+
+
 <script src="/assets/js/jquery.js"></script>
+
+
 <script src="/assets/js/jquery.fancybox.js"></script>
+
+
 <script src="/assets/js/thumbs.js"></script>
+
+
 <script src="/assets/js/7mile.js"></script>
+
 <!--SCRIPTS END-->
 
 <script>

@@ -13,18 +13,18 @@
     
     
     
-    <meta name="description" content="Description今年多校第一场的题哦 传送门 Analysis看到积分非常傻眼，而且题目里还声称“答案是有理数”，这自然引起我们的好奇。注意到分子分母其实是齐次的，所以多半是什么东西消掉了才这样的吧x 上下都是 $4N,2N$ ，不妨只考虑一个 $N$，然后菜鸡的分析只会大暴力，最暴力的想法就是，呃，先换元试试看。$x=\frac{1}{\tau}$ 代换后">
-<meta name="keywords" content="Math">
+    <meta name="description" content="Description 今年多校第一场的题哦 传送门 Analysis 看到积分非常傻眼，而且题目里还声称“答案是有理数”，这自然引起我们的好奇。注意到分子分母其实是齐次的，所以多半是什么东西消掉了才这样的吧x 上下都是 \(4N,2N\) ，不妨只考虑一个 \(N\)，然后菜鸡的分析只会大暴力，最暴力的想法就是，呃，先换元试试看。\(x&#x3D;\frac{1}{\tau}\) 代换后">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="算法竞赛对特殊函数的一次尝试：HDU 6758">
 <meta property="og:url" content="https://7li.moe/hdu-6758.html">
 <meta property="og:site_name" content="7mile">
-<meta property="og:description" content="Description今年多校第一场的题哦 传送门 Analysis看到积分非常傻眼，而且题目里还声称“答案是有理数”，这自然引起我们的好奇。注意到分子分母其实是齐次的，所以多半是什么东西消掉了才这样的吧x 上下都是 $4N,2N$ ，不妨只考虑一个 $N$，然后菜鸡的分析只会大暴力，最暴力的想法就是，呃，先换元试试看。$x=\frac{1}{\tau}$ 代换后">
-<meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-11-06T06:32:59.597Z">
+<meta property="og:description" content="Description 今年多校第一场的题哦 传送门 Analysis 看到积分非常傻眼，而且题目里还声称“答案是有理数”，这自然引起我们的好奇。注意到分子分母其实是齐次的，所以多半是什么东西消掉了才这样的吧x 上下都是 \(4N,2N\) ，不妨只考虑一个 \(N\)，然后菜鸡的分析只会大暴力，最暴力的想法就是，呃，先换元试试看。\(x&#x3D;\frac{1}{\tau}\) 代换后">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-04T22:14:04.000Z">
+<meta property="article:modified_time" content="2020-11-06T06:32:59.597Z">
+<meta property="article:author" content="7mile">
+<meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法竞赛对特殊函数的一次尝试：HDU 6758">
-<meta name="twitter:description" content="Description今年多校第一场的题哦 传送门 Analysis看到积分非常傻眼，而且题目里还声称“答案是有理数”，这自然引起我们的好奇。注意到分子分母其实是齐次的，所以多半是什么东西消掉了才这样的吧x 上下都是 $4N,2N$ ，不妨只考虑一个 $N$，然后菜鸡的分析只会大暴力，最暴力的想法就是，呃，先换元试试看。$x=\frac{1}{\tau}$ 代换后">
     
     
         
@@ -37,11 +37,21 @@
     
 
     <!--STYLES-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-    <link rel="stylesheet" href="/assets/css/font-awesome.css">
-    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
-    <link rel="stylesheet" href="/assets/css/thumbs.css">
-    <link rel="stylesheet" href="/assets/css/7mile.css">
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+
+    
+<link rel="stylesheet" href="/assets/css/font-awesome.css">
+
+    
+<link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+
+    
+<link rel="stylesheet" href="/assets/css/thumbs.css">
+
+    
+<link rel="stylesheet" href="/assets/css/7mile.css">
+
     <!--STYLES END-->
     
 
@@ -62,7 +72,7 @@
 <header id="header" data-behavior="4">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
-        <a class="header-title-link" href="/ ">7mile</a>
+        <a class="header-title-link" href="/">7mile</a>
     </div>
     
         
@@ -103,7 +113,7 @@
                 <li class="sidebar-button">
                     
                         <a  class="sidebar-button-link "
-                             href="/ "
+                             href="/"
                             
                             title="Home"
                         >
@@ -211,32 +221,44 @@
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
             <!-- Main Content of Post -->
-            <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>今年多校第一场的题哦</p>
-<p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6758" target="_blank" rel="noopener">传送门</a></p>
-<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>看到积分非常傻眼，而且题目里还声称“答案是有理数”，这自然引起我们的好奇。注意到分子分母其实是齐次的，所以多半是什么东西消掉了才这样的吧x</p>
-<p>上下都是 $4N,2N$ ，不妨只考虑一个 $N$，然后菜鸡的分析只会大暴力，最暴力的想法就是，呃，先换元试试看。$x=\frac{1}{\tau}$ 代换后</p>
-<a id="more"></a>
-
-<p>$$<br>\int_0^{+\infty}\frac{\tau^{-N-1}}{e^{\frac1\tau}-1}\mathrm{d}\tau=<br>\int_0^{+\infty}\frac{x^{N-1}}{e^x-1}\mathrm{d}x<br>$$</p>
+            <h1 id="description">Description</h1>
+<p>今年多校第一场的题哦</p>
+<p><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=6758">传送门</a></p>
+<h1 id="analysis">Analysis</h1>
+<p>看到积分非常傻眼，而且题目里还声称“答案是有理数”，这自然引起我们的好奇。注意到分子分母其实是齐次的，所以多半是什么东西消掉了才这样的吧x</p>
+<p>上下都是 <span class="math inline">\(4N,2N\)</span> ，不妨只考虑一个 <span class="math inline">\(N\)</span>，然后菜鸡的分析只会大暴力，最暴力的想法就是，呃，先换元试试看。<span class="math inline">\(x=\frac{1}{\tau}\)</span> 代换后</p>
+<span id="more"></span>
+<p><span class="math display">\[
+\int_0^{+\infty}\frac{\tau^{-N-1}}{e^{\frac1\tau}-1}\mathrm{d}\tau=
+\int_0^{+\infty}\frac{x^{N-1}}{e^x-1}\mathrm{d}x
+\]</span></p>
 <p>这么个形式看上去就很……咳咳，很特殊函数吧（</p>
-<p>对，它就是 $\text{Riemann-}\zeta$ 的定义之一：</p>
-<p>$$<br>{\displaystyle \zeta (s)={\frac {1}{\Gamma (s)}}\int _{0}^{\infty }{\frac {x^{s-1}}{e^{x}-1}},\mathrm {d} x\quad {\text{for}}\quad \operatorname {Re} (s)\equiv \sigma &gt;1,}<br>$$</p>
+<p>对，它就是 <span class="math inline">\(\text{Riemann-}\zeta\)</span> 的定义之一：</p>
+<p><span class="math display">\[
+{\displaystyle \zeta (s)={\frac {1}{\Gamma (s)}}\int _{0}^{\infty }{\frac {x^{s-1}}{e^{x}-1}}\,\mathrm {d} x\quad {\text{for}}\quad \operatorname {Re} (s)\equiv \sigma &gt;1,}
+\]</span></p>
 <p>所以我们就顺理成章地只需要求</p>
-<p>$$<br>\frac{\zeta(4N)(4N-1)!}{\zeta^2(2N)(2N-1)!^2}<br>$$</p>
-<p>$\text{Riemann-}\zeta$ 函数和多项式自然数点值的求和有关，并且偶数函数值都是已知的，<del>作为精通特殊函数论的殿堂级离散数学家的你一定知道这个性质</del></p>
-<p>$$<br>\zeta(2n) = \frac{(-1)^{n+1}B_{2n}(2\pi)^{2n}}{2(2n)!}<br>$$</p>
+<p><span class="math display">\[
+\frac{\zeta(4N)(4N-1)!}{\zeta^2(2N)(2N-1)!^2}
+\]</span></p>
+<p><span class="math inline">\(\text{Riemann-}\zeta\)</span> 函数和多项式自然数点值的求和有关，并且偶数函数值都是已知的，<del>作为精通特殊函数论的殿堂级离散数学家的你一定知道这个性质</del></p>
+<p><span class="math display">\[
+\zeta(2n) = \frac{(-1)^{n+1}B_{2n}(2\pi)^{2n}}{2(2n)!}
+\]</span></p>
 <p>代入化简，最后居然得到这么简单的柿子</p>
-<p>$$<br>-\frac{2NB_{4N}}{B_{2N}^2}<br>$$</p>
+<p><span class="math display">\[
+-\frac{2NB_{4N}}{B_{2N}^2}
+\]</span></p>
 <p>好像就没啥了……预处理完伯努利数就能做。</p>
 <p>虽然说得轻巧，但这也不失为一次引入特殊函数的大胆尝试，咱也算是见识前沿东西了（bushi</p>
-<h1 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//　静かな海</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dbg(x, y...) fprintf(stderr, x, y)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pline() (dbg(<span class="meta-string">"Passing Line #%d in Func [%s]"</span>, __LINE__, __FUNCTION__))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1.2e6</span>+<span class="number">3</span>,P=<span class="number">1e9</span>+<span class="number">9</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI=<span class="built_in">acos</span>(<span class="number">-1</span>);</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">C</span>&#123;</span></span><br><span class="line">  <span class="keyword">double</span> x,y;</span><br><span class="line">  C <span class="keyword">operator</span>+(C a)<span class="keyword">const</span>&#123;<span class="keyword">return</span>&#123;x+a.x,y+a.y&#125;;&#125;</span><br><span class="line">  C <span class="keyword">operator</span>-(C a)<span class="keyword">const</span>&#123;<span class="keyword">return</span>&#123;x-a.x,y-a.y&#125;;&#125;</span><br><span class="line">  C <span class="keyword">operator</span>*(C a)<span class="keyword">const</span>&#123;<span class="keyword">return</span>&#123;x*a.x-y*a.y,x*a.y+y*a.x&#125;;&#125;</span><br><span class="line">&#125;a[N],b[N],c[N],d[N],w[N];</span><br><span class="line"><span class="keyword">int</span> n,r[N],x[N],y[N],z[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qp</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> r=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(;b;b&gt;&gt;=<span class="number">1</span>,a=a*<span class="number">1l</span>l*a%P)<span class="keyword">if</span>(b&amp;<span class="number">1</span>)r=r*<span class="number">1l</span>l*a%P;</span><br><span class="line">  <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fft</span><span class="params">(C*a,<span class="keyword">bool</span> b=<span class="number">0</span>)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i,j,k;</span><br><span class="line">  C *g,*u,*v,x;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;++i)<span class="keyword">if</span>(i&lt;r[i])swap(a[i],a[r[i]]);</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;n;i*=<span class="number">2</span>)<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;n;j+=i*<span class="number">2</span>)<span class="keyword">for</span>(k=<span class="number">0</span>,g=w+i,u=a+j,v=u+i;k&lt;i;++k)</span><br><span class="line">  x=g[k]*v[k],v[k]=u[k]-x,u[k]=u[k]+x;</span><br><span class="line">  <span class="keyword">if</span>(b)<span class="keyword">for</span>(i=<span class="number">0</span>,reverse(a+<span class="number">1</span>,a+n);i&lt;n;++i)a[i].x/=n,a[i].y/=n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pre</span><span class="params">(<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i,j;</span><br><span class="line">  <span class="keyword">for</span>(n=<span class="number">1</span>;n&lt;m;n*=<span class="number">2</span>);</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">1</span>,w[j=n&gt;&gt;<span class="number">1</span>]=&#123;<span class="number">1</span>,<span class="number">0</span>&#125;;i&lt;n;++i)r[i]=(r[i&gt;&gt;<span class="number">1</span>]&gt;&gt;<span class="number">1</span>)|((i&amp;<span class="number">1</span>)?j:<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">for</span>(i=j+<span class="number">1</span>;i&lt;n;++i)w[i]=&#123;<span class="built_in">cos</span>(<span class="number">2</span>*(i-j)*PI/n),<span class="built_in">sin</span>(<span class="number">2</span>*(i-j)*PI/n)&#125;;</span><br><span class="line">  <span class="keyword">for</span>(i=j<span class="number">-1</span>;i;--i)w[i]=w[i*<span class="number">2</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> to(_) ((long long)((_)+.5)%P)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inv</span><span class="params">(<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(m==<span class="number">1</span>)&#123;y[<span class="number">0</span>]=qp(x[<span class="number">0</span>],P<span class="number">-2</span>),pre(<span class="number">2</span>);<span class="keyword">return</span>;&#125;</span><br><span class="line">  <span class="keyword">int</span> i,j,l=m+<span class="number">1</span>&gt;&gt;<span class="number">1</span>;</span><br><span class="line">  inv(l);</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;l;++i)a[i]=&#123;y[i]&gt;&gt;<span class="number">15</span>,y[i]&amp;<span class="number">32767</span>&#125;;</span><br><span class="line">  <span class="keyword">for</span>(i=l;i&lt;n;++i)a[i]=&#123;<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line">  fft(a);</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;++i)j=i?n-i:<span class="number">0</span>,c[i]=C&#123;<span class="number">.5</span>*(a[i].x+a[j].x),<span class="number">.5</span>*(a[i].y-a[j].y)&#125;*a[i],d[i]=C&#123;<span class="number">.5</span>*(a[i].y+a[j].y),<span class="number">.5</span>*(a[j].x-a[i].x)&#125;*a[i];</span><br><span class="line">  fft(c,<span class="number">1</span>),fft(d,<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;++i)z[i]=((to(c[i].x)&lt;&lt;<span class="number">30</span>)+(to(c[i].y+d[i].x)&lt;&lt;<span class="number">15</span>)+to(d[i].y))%P;</span><br><span class="line">  pre(m*<span class="number">2</span>);</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;m;++i)a[i]=&#123;x[i]&gt;&gt;<span class="number">15</span>,x[i]&amp;<span class="number">32767</span>&#125;;</span><br><span class="line">  <span class="keyword">for</span>(i=m;i&lt;n;++i)a[i]=&#123;<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;++i)b[i]=&#123;z[i]&gt;&gt;<span class="number">15</span>,z[i]&amp;<span class="number">32767</span>&#125;;</span><br><span class="line">  fft(a),fft(b);</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;++i)j=i?n-i:<span class="number">0</span>,c[i]=C&#123;<span class="number">.5</span>*(a[i].x+a[j].x),<span class="number">.5</span>*(a[i].y-a[j].y)&#125;*b[i],d[i]=C&#123;<span class="number">.5</span>*(a[i].y+a[j].y),<span class="number">.5</span>*(a[j].x-a[i].x)&#125;*b[i];</span><br><span class="line">  fft(c,<span class="number">1</span>),fft(d,<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;++i)z[i]=((to(c[i].x)&lt;&lt;<span class="number">30</span>)+(to(c[i].y+d[i].x)&lt;&lt;<span class="number">15</span>)+to(d[i].y))%P;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;m;++i)y[i]=(y[i]=(y[i]*<span class="number">2</span>-z[i])%P)&lt;<span class="number">0</span>?y[i]+P:y[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> fac[N], ifac[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n=<span class="number">4.1e5</span>,m,i,j;</span><br><span class="line">  fac[<span class="number">0</span>] = ifac[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (i=<span class="number">1</span>; i&lt;=n; i++) fac[i]=<span class="number">1l</span>l*fac[i<span class="number">-1</span>]*i%P;</span><br><span class="line">  ifac[n] = qp(fac[n], P<span class="number">-2</span>);</span><br><span class="line">  <span class="keyword">for</span> (i=n<span class="number">-1</span>; i; i--) ifac[i]=<span class="number">1l</span>l*ifac[i+<span class="number">1</span>]*(i+<span class="number">1</span>)%P;</span><br><span class="line">  <span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;n; i++) x[i]=ifac[i+<span class="number">1</span>];</span><br><span class="line">  inv(n);</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++) y[i]=<span class="number">1l</span>l*y[i]*fac[i]%P;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;m);</span><br><span class="line">  <span class="keyword">while</span>(m--)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    j=<span class="number">0</span>;</span><br><span class="line">    j = qp(y[<span class="number">2</span>*n], P<span class="number">-2</span>);</span><br><span class="line">    j = <span class="number">1l</span>l * j * j % P;</span><br><span class="line">    j = <span class="number">2l</span>l * n * y[<span class="number">4</span>*n] % P * j % P;</span><br><span class="line">    j = (P - j) % P;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, j);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h1 id="implementation">Implementation</h1>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//　静かな海</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dbg(x, y...) fprintf(stderr, x, y)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pline() (dbg(<span class="meta-string">&quot;Passing Line #%d in Func [%s]&quot;</span>, __LINE__, __FUNCTION__))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1.2e6</span>+<span class="number">3</span>,P=<span class="number">1e9</span>+<span class="number">9</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI=<span class="built_in">acos</span>(<span class="number">-1</span>);</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">C</span>&#123;</span></span><br><span class="line">  <span class="keyword">double</span> x,y;</span><br><span class="line">  C <span class="keyword">operator</span>+(C a)<span class="keyword">const</span>&#123;<span class="keyword">return</span>&#123;x+a.x,y+a.y&#125;;&#125;</span><br><span class="line">  C <span class="keyword">operator</span>-(C a)<span class="keyword">const</span>&#123;<span class="keyword">return</span>&#123;x-a.x,y-a.y&#125;;&#125;</span><br><span class="line">  C <span class="keyword">operator</span>*(C a)<span class="keyword">const</span>&#123;<span class="keyword">return</span>&#123;x*a.x-y*a.y,x*a.y+y*a.x&#125;;&#125;</span><br><span class="line">&#125;a[N],b[N],c[N],d[N],w[N];</span><br><span class="line"><span class="keyword">int</span> n,r[N],x[N],y[N],z[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qp</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> r=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(;b;b&gt;&gt;=<span class="number">1</span>,a=a*<span class="number">1ll</span>*a%P)<span class="keyword">if</span>(b&amp;<span class="number">1</span>)r=r*<span class="number">1ll</span>*a%P;</span><br><span class="line">  <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fft</span><span class="params">(C*a,<span class="keyword">bool</span> b=<span class="number">0</span>)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i,j,k;</span><br><span class="line">  C *g,*u,*v,x;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;++i)<span class="keyword">if</span>(i&lt;r[i])<span class="built_in">swap</span>(a[i],a[r[i]]);</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;n;i*=<span class="number">2</span>)<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;n;j+=i*<span class="number">2</span>)<span class="keyword">for</span>(k=<span class="number">0</span>,g=w+i,u=a+j,v=u+i;k&lt;i;++k)</span><br><span class="line">  x=g[k]*v[k],v[k]=u[k]-x,u[k]=u[k]+x;</span><br><span class="line">  <span class="keyword">if</span>(b)<span class="keyword">for</span>(i=<span class="number">0</span>,<span class="built_in">reverse</span>(a+<span class="number">1</span>,a+n);i&lt;n;++i)a[i].x/=n,a[i].y/=n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pre</span><span class="params">(<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i,j;</span><br><span class="line">  <span class="keyword">for</span>(n=<span class="number">1</span>;n&lt;m;n*=<span class="number">2</span>);</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">1</span>,w[j=n&gt;&gt;<span class="number">1</span>]=&#123;<span class="number">1</span>,<span class="number">0</span>&#125;;i&lt;n;++i)r[i]=(r[i&gt;&gt;<span class="number">1</span>]&gt;&gt;<span class="number">1</span>)|((i&amp;<span class="number">1</span>)?j:<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">for</span>(i=j+<span class="number">1</span>;i&lt;n;++i)w[i]=&#123;<span class="built_in">cos</span>(<span class="number">2</span>*(i-j)*PI/n),<span class="built_in">sin</span>(<span class="number">2</span>*(i-j)*PI/n)&#125;;</span><br><span class="line">  <span class="keyword">for</span>(i=j<span class="number">-1</span>;i;--i)w[i]=w[i*<span class="number">2</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> to(_) ((long long)((_)+.5)%P)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inv</span><span class="params">(<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(m==<span class="number">1</span>)&#123;y[<span class="number">0</span>]=<span class="built_in">qp</span>(x[<span class="number">0</span>],P<span class="number">-2</span>),<span class="built_in">pre</span>(<span class="number">2</span>);<span class="keyword">return</span>;&#125;</span><br><span class="line">  <span class="keyword">int</span> i,j,l=m+<span class="number">1</span>&gt;&gt;<span class="number">1</span>;</span><br><span class="line">  <span class="built_in">inv</span>(l);</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;l;++i)a[i]=&#123;y[i]&gt;&gt;<span class="number">15</span>,y[i]&amp;<span class="number">32767</span>&#125;;</span><br><span class="line">  <span class="keyword">for</span>(i=l;i&lt;n;++i)a[i]=&#123;<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line">  <span class="built_in">fft</span>(a);</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;++i)j=i?n-i:<span class="number">0</span>,c[i]=C&#123;<span class="number">.5</span>*(a[i].x+a[j].x),<span class="number">.5</span>*(a[i].y-a[j].y)&#125;*a[i],d[i]=C&#123;<span class="number">.5</span>*(a[i].y+a[j].y),<span class="number">.5</span>*(a[j].x-a[i].x)&#125;*a[i];</span><br><span class="line">  <span class="built_in">fft</span>(c,<span class="number">1</span>),<span class="built_in">fft</span>(d,<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;++i)z[i]=((<span class="built_in">to</span>(c[i].x)&lt;&lt;<span class="number">30</span>)+(<span class="built_in">to</span>(c[i].y+d[i].x)&lt;&lt;<span class="number">15</span>)+<span class="built_in">to</span>(d[i].y))%P;</span><br><span class="line">  <span class="built_in">pre</span>(m*<span class="number">2</span>);</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;m;++i)a[i]=&#123;x[i]&gt;&gt;<span class="number">15</span>,x[i]&amp;<span class="number">32767</span>&#125;;</span><br><span class="line">  <span class="keyword">for</span>(i=m;i&lt;n;++i)a[i]=&#123;<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;++i)b[i]=&#123;z[i]&gt;&gt;<span class="number">15</span>,z[i]&amp;<span class="number">32767</span>&#125;;</span><br><span class="line">  <span class="built_in">fft</span>(a),<span class="built_in">fft</span>(b);</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;++i)j=i?n-i:<span class="number">0</span>,c[i]=C&#123;<span class="number">.5</span>*(a[i].x+a[j].x),<span class="number">.5</span>*(a[i].y-a[j].y)&#125;*b[i],d[i]=C&#123;<span class="number">.5</span>*(a[i].y+a[j].y),<span class="number">.5</span>*(a[j].x-a[i].x)&#125;*b[i];</span><br><span class="line">  <span class="built_in">fft</span>(c,<span class="number">1</span>),<span class="built_in">fft</span>(d,<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;++i)z[i]=((<span class="built_in">to</span>(c[i].x)&lt;&lt;<span class="number">30</span>)+(<span class="built_in">to</span>(c[i].y+d[i].x)&lt;&lt;<span class="number">15</span>)+<span class="built_in">to</span>(d[i].y))%P;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;m;++i)y[i]=(y[i]=(y[i]*<span class="number">2</span>-z[i])%P)&lt;<span class="number">0</span>?y[i]+P:y[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> fac[N], ifac[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n=<span class="number">4.1e5</span>,m,i,j;</span><br><span class="line">  fac[<span class="number">0</span>] = ifac[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (i=<span class="number">1</span>; i&lt;=n; i++) fac[i]=<span class="number">1ll</span>*fac[i<span class="number">-1</span>]*i%P;</span><br><span class="line">  ifac[n] = <span class="built_in">qp</span>(fac[n], P<span class="number">-2</span>);</span><br><span class="line">  <span class="keyword">for</span> (i=n<span class="number">-1</span>; i; i--) ifac[i]=<span class="number">1ll</span>*ifac[i+<span class="number">1</span>]*(i+<span class="number">1</span>)%P;</span><br><span class="line">  <span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;n; i++) x[i]=ifac[i+<span class="number">1</span>];</span><br><span class="line">  <span class="built_in">inv</span>(n);</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++) y[i]=<span class="number">1ll</span>*y[i]*fac[i]%P;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;m);</span><br><span class="line">  <span class="keyword">while</span>(m--)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    j=<span class="number">0</span>;</span><br><span class="line">    j = <span class="built_in">qp</span>(y[<span class="number">2</span>*n], P<span class="number">-2</span>);</span><br><span class="line">    j = <span class="number">1ll</span> * j * j % P;</span><br><span class="line">    j = <span class="number">2ll</span> * n * y[<span class="number">4</span>*n] % P * j % P;</span><br><span class="line">    j = (P - j) % P;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, j);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
             
 
             <!-- CC4 Copyright -->
             <!-- <p>
-                <a href="http://creativecommons.org/licenses/by-sa/4.0/" style="display: inline-block;" >
+                <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-sa/4.0/" style="display: inline-block;" >
                     <img src="https://img.shields.io/badge/License-CC%20BY--SA%204.0-brightgreen.svg?style=flat-square" alt="License: CC BY-SA 4.0">
                 </a>
             </p> -->
@@ -248,7 +270,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">标签</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/Math/">Math</a>
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/Math/" rel="tag">Math</a>
 
             </div>
         
@@ -278,7 +300,7 @@
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen">
                 <i class="fa fa-share-alt" aria-hidden="true"></i>
             </a>
         </li>
@@ -294,7 +316,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -307,7 +329,7 @@
         
             
                 <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
             
         
@@ -322,13 +344,13 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2021   <a href="/ ">7mile</a> . All Rights Reserved.
+        Copyrights &copy; 2021   <a href="/">7mile</a> . All Rights Reserved.
     </span>
     <p>
         Made in Northern Lights.
     </p>
     <p>
-        UI powered by <a href="https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak">Tranquilpeak</a>, <a href="https://github.com/LouisBarranqueiro">Louis Barranqueiro</a>, Thanks a lot.
+        UI powered by <a target="_blank" rel="noopener" href="https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak">Tranquilpeak</a>, <a target="_blank" rel="noopener" href="https://github.com/LouisBarranqueiro">Louis Barranqueiro</a>, Thanks a lot.
     </p>
 </footer>
 
@@ -360,7 +382,7 @@
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen">
                 <i class="fa fa-share-alt" aria-hidden="true"></i>
             </a>
         </li>
@@ -376,7 +398,7 @@
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
             
                 <i class="fa fa-list" aria-hidden="true"></i>
             </a>
@@ -452,13 +474,27 @@
 <!-- SCRIPTS OPTIONS END -->
 
 <!--SCRIPTS-->
+
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+
+
 <script src="/assets/js/jquery.js"></script>
+
+
 <script src="/assets/js/jquery.fancybox.js"></script>
+
+
 <script src="/assets/js/thumbs.js"></script>
+
+
 <script src="/assets/js/7mile.js"></script>
+
 <!--SCRIPTS END-->
 
 <script>
