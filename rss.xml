@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[7mile RSS Feed]]></title><description><![CDATA[一切都有其意义，包括停滞不前的日子。]]></description><link>https://7li.moe</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 03 Jul 2024 01:24:43 GMT</lastBuildDate><item><title><![CDATA[Inní mér syngur vitleysingur]]></title><description><![CDATA[「Alice 领域大神」……说到底 Alice 究竟是什么？ 正因为大家不知道 Alice 是什么， Alice 才是 Alice 。 Alice 是他的少女，Alice 是那个时空的龙；Alice 姓 Tendou，姓 (nil)，也姓 Liddell；Alice…]]></description><link>https://7li.moe/within-me-a-lunatic-sings/</link><guid isPermaLink="false">https://7li.moe/within-me-a-lunatic-sings/</guid><pubDate>Wed, 27 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;「Alice 领域大神」……说到底 Alice 究竟是什么？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;正因为大家不知道 Alice 是什么， Alice 才是 Alice 。 Alice 是他的少女，Alice 是那个时空的龙；Alice 姓 Tendou，姓 (nil)，也姓 Liddell；Alice 住在笔下、住在泰晤士河上、住在你的图书馆的中心、住在永生者们错乱拼接的城市里、住在可以被穷尽的所有故事的尽头。&lt;/p&gt;
+&lt;p&gt;试想一个人倾其一生为 Alice 作传，但他终于会发现那是不可能的。那时他自己也成为了 Alice ，他无法将自己的故事写入自己的作品之中。&lt;/p&gt;
+&lt;p&gt;然而，无论你如何哀求、挽留，Alice 并不显现在生活之中。哪怕最有才的建筑师为她创造辉煌的宫殿群，建立永不停止的时钟塔，也未必能得到垂怜。那是承载一切的胶卷，唯独独具天赋的家伙们将其照亮时，我们才被准许窥探其中一角。&lt;/p&gt;
+&lt;p&gt;我从数次失败中努力地认识到了这一点。我尝试调查 Alice 的历史，但读了一些就不再读了，因为不论是国王还是乞丐的尝试都失败了。我还听说有几位诗人为此丧命。&lt;/p&gt;
+&lt;p&gt;但我当然不是要保持噤声。我已经不再指望埃俄罗斯能赠与一个口袋，又在不知什么时候将众人送回原点。我期待将众人聚拢在一起，不是靠巫术、宗教或彩票，靠为他们讲述 Alice 。&lt;/p&gt;
+&lt;p&gt;我们将会小心地调整航向，确保船舷不偏转倾覆。也许在漫长的岁月中选取四千年航行，二千年绘制路线与地图。每天夜里我都知道，我们终于难以寻见 Alice 的影，但我们将会很快活。&lt;/p&gt;
+&lt;p&gt;我们将我们自己编织的故事口口相传，找到我们之中最杰出的诗人，他会用最严密的韵律和最深奥的隐喻，写一篇失败的胜利的史诗，流传后世。&lt;/p&gt;
+&lt;p&gt;夕阳西下，远方的海平面露出了另一艘船的桅杆。Alice 就在这么不经意间显现。&lt;/p&gt;
+&lt;p&gt;献给 Antigone .&lt;/p&gt;</content:encoded></item><item><title><![CDATA[UFCase README]]></title><description><![CDATA[GitHub Repository IMPORTANT This tool is experimental and requires full control on your PC. Please DO NOT use it under production…]]></description><link>https://7li.moe/ufcase/</link><guid isPermaLink="false">https://7li.moe/ufcase/</guid><pubDate>Wed, 13 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://github.com/seven-mile/UFCase&quot;&gt;GitHub Repository&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;IMPORTANT&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This tool is experimental and requires full control on your PC. Please DO NOT use it under production environment, especially for the mutation functionalities, which are not properly tested for now.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Windows Servicing Stack is the main infrastructure that integrated with the update of Windows internal components (generally).&lt;/p&gt;
+&lt;p&gt;UFCase (Utility Functions Case) provides overall enumeration (and possibly deployment in the future) of multi-level abstractions of these Windows components.&lt;/p&gt;
+&lt;p&gt;The article &lt;a href=&quot;https://techcommunity.microsoft.com/t5/ask-the-performance-team/understanding-component-based-servicing/ba-p/373012&quot;&gt;Understanding Component-Based Servicing
+&lt;/a&gt; provides the overview on the Servicing Stack and how it roughly works when an update is installed or removed.&lt;/p&gt;
+&lt;h3&gt;Releases&lt;/h3&gt;
+&lt;p&gt;I&apos;ll publish breaking changes for UFCase in the &lt;a href=&quot;https://github.com/seven-mile/UFCase/releases&quot;&gt;GitHub releases&lt;/a&gt;. And the CI will upload nightly build artifacts of the newest commit. Goto &lt;a href=&quot;https://github.com/seven-mile/UFCase/actions&quot;&gt;GitHub actions&lt;/a&gt;, click the commit you prefer and download &lt;code class=&quot;language-text&quot;&gt;UFCase_portable.zip&lt;/code&gt; from the row &lt;code class=&quot;language-text&quot;&gt;Artifacts&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Glossary&lt;/h3&gt;
+&lt;p&gt;All the descriptions below are woven by my own understanding. For your information only.&lt;/p&gt;
+&lt;p&gt;Firstly, let&apos;s take a look at the underlying mechanisms, which interact with our well-known filesystems and registry.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Assembly&lt;/strong&gt;, is a core concept from .Net but used by Windows Componentization Platform. &lt;a href=&quot;https://learn.microsoft.com/en-us/dotnet/standard/assembly/&quot;&gt;Assemblies in .NET&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;The concept of assembly connects different layers of servicing stack.&lt;/li&gt;
+&lt;li&gt;Its &lt;strong&gt;Manifest&lt;/strong&gt; uses xml format with schema denoted as &lt;code class=&quot;language-text&quot;&gt;urn:schemas-microsoft-com:asm.v[1~3]&lt;/code&gt;. This article &lt;a href=&quot;https://learn.microsoft.com/en-us/windows/win32/sbscs/manifest-file-schema&quot;&gt;Manifest File Schema&lt;/a&gt; describes the public parts. But most of the schema about windows native components is stripped. There&apos;s also a binary representation rather than dumb XML format.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Component&lt;/strong&gt;, is a native assembly that compose Windows in the end. Almost everything in Windows can be traced back to a component, including NT Kernel, NTFS driver, servicing stack itself, C runtime framework, system apps and localization resources. The main contents of a real component are a group of files and registry values, with other metadata like
+&lt;ul&gt;
+&lt;li&gt;the source and target concerning installation&lt;/li&gt;
+&lt;li&gt;security descriptors signing how they are protected by the system (Windows Resource Protection)&lt;/li&gt;
+&lt;li&gt;hash values validating the integrity of the component&lt;/li&gt;
+&lt;li&gt;other registration mechanisms like COM interfaces and Win32 window classes&lt;/li&gt;
+&lt;li&gt;dependencies&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Deployment&lt;/strong&gt;, is a special component that defines a bunch of deployable contents by its assembly dependencies.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WinSxS&lt;/strong&gt;, or &lt;strong&gt;Component Store&lt;/strong&gt;, is a strong naming, dependency-aware, version-controlled, digitally-signed, corruption-detectable, transactional and hark linking component store organized by assemblies. Popularly speaking, a private package manager for windows itself.
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;SxS&lt;/code&gt; expands to &lt;code class=&quot;language-text&quot;&gt;Side by Side&lt;/code&gt;, denoting the components with multiple versions can live within your system side by side.&lt;/li&gt;
+&lt;li&gt;Built on the filesystem and registry directly. So compared with databases, its behaves like a turtle.&lt;/li&gt;
+&lt;li&gt;The directory &lt;code class=&quot;language-text&quot;&gt;%WINDIR%\WinSxS&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;The registry hive &lt;code class=&quot;language-text&quot;&gt;HKEY_LOCAL_MACHINE\COMPONENTS&lt;/code&gt; from &lt;code class=&quot;language-text&quot;&gt;%WINDIR%\System32\config&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;The registry key &lt;code class=&quot;language-text&quot;&gt;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\SideBySide&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Windows Componentization Platform&lt;/strong&gt;, a.k.a. &lt;code class=&quot;language-text&quot;&gt;wcp.dll&lt;/code&gt; from servicing stack, is a native implementation of assembly store, or technically &quot;Isolation Interface&quot;. Correspondingly, .Net Framework used to have its own isolation implementation. Many DLLs &lt;em&gt;probably&lt;/em&gt; had a version that implemented isolation, includes &lt;code class=&quot;language-text&quot;&gt;sxs.dll&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;isowin32.dll&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;isoman.dll&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;clr.dll&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;coreclr.dll&lt;/code&gt;, and even &lt;code class=&quot;language-text&quot;&gt;ntdll.dll&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Now let&apos;s change our point of view to the upper layers. After the &lt;strong&gt;Updates (Windows Update)&lt;/strong&gt; are downloaded into the &lt;code class=&quot;language-text&quot;&gt;SoftwareDistribution&lt;/code&gt;, what information do they take and which contents do they ship?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Update (Windows Update)&lt;/strong&gt;, also known as &lt;code class=&quot;language-text&quot;&gt;*.msu&lt;/code&gt;. The &lt;code class=&quot;language-text&quot;&gt;.msu&lt;/code&gt; file archives some other &lt;code class=&quot;language-text&quot;&gt;.cab&lt;/code&gt; recursively - some contain metadata (&lt;code class=&quot;language-text&quot;&gt;CompDB&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;OfflineSyncPackage&lt;/code&gt;), some are the payloads, which are in fact called &quot;Package&quot;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Package (CBS)&lt;/strong&gt;, is a high-level assembly. They can be queried using &lt;code class=&quot;language-text&quot;&gt;Dism /Online /Get-Packages&lt;/code&gt;. The package has many available formats. Some well known technologies like msdelta a delta package format are used on it. But again and again... all of them have two parts: manifest and payload. The manifest of packages ends with &lt;code class=&quot;language-text&quot;&gt;.mum&lt;/code&gt;, describing:
+&lt;ul&gt;
+&lt;li&gt;which updates (CBS) are included, this is the payload descriptor&lt;/li&gt;
+&lt;li&gt;which packages are its parents, some pack has lang packs as their children&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Capability (CBS)&lt;/strong&gt;, also known as &lt;strong&gt;Feature on Demand&lt;/strong&gt;. They canbe queried with &lt;code class=&quot;language-text&quot;&gt;Dism /Online /Get-Capabilities&lt;/code&gt;. Capabilities are generally a bunch of packages. They are not present in your disk at the first time, and can be downloaded from Windows Update Server.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Update (CBS)&lt;/strong&gt;, is a logical concept that only exists in the manifest of packages. It reference to an assembly, wrappered by
+&lt;ul&gt;
+&lt;li&gt;a &lt;code class=&quot;language-text&quot;&gt;component&lt;/code&gt; element, which is an ordinary WinSxS assembly component&lt;/li&gt;
+&lt;li&gt;a &lt;code class=&quot;language-text&quot;&gt;package&lt;/code&gt; element, which refer to another package&lt;/li&gt;
+&lt;li&gt;a &lt;code class=&quot;language-text&quot;&gt;driver&lt;/code&gt; element, which is a driver&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Feature (CBS)&lt;/strong&gt;, is actually should be called &lt;strong&gt;Optional Feature&lt;/strong&gt;, differing from &lt;strong&gt;Feature on Demand&lt;/strong&gt;. Features are the updates of the special package &lt;code class=&quot;language-text&quot;&gt;Microsoft-Windows-Foundation-Package&lt;/code&gt;, and can be queried by &lt;code class=&quot;language-text&quot;&gt;Dism /Online /Get-Features&lt;/code&gt;. These features are staged in WinSxS but not usable directly. If you need it you can enable it &lt;em&gt;without network connection&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[MSIX Dynamic Dependency]]></title><description><![CDATA[WinAppSDK API Spec Package Dependency Windows MSIX Package 目前来看主要有三种： Application Package，使用  定义入口程序。 Framework Package，设置 。 WinUI…]]></description><link>https://7li.moe/msix-dynamic-dependency/</link><guid isPermaLink="false">https://7li.moe/msix-dynamic-dependency/</guid><pubDate>Wed, 26 Jul 2023 20:17:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WindowsAppSDK/blob/main/specs/dynamicdependencies/DynamicDependencies.md&quot;&gt;WinAppSDK API Spec&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Package Dependency&lt;/h2&gt;
+&lt;p&gt;Windows MSIX Package 目前来看主要有三种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Application Package，使用 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Application Executable=&quot;Path&quot; /&gt;&lt;/code&gt; 定义入口程序。&lt;/li&gt;
+&lt;li&gt;Framework Package，设置 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Framework&gt;true&amp;lt;/Framework&gt;&lt;/code&gt;。
+&lt;ul&gt;
+&lt;li&gt;WinUI2、WinAppSDK、DirectX、VCLib 等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Resource Package，包含字符串、图像等资源。
+&lt;ul&gt;
+&lt;li&gt;最常见的用例是按需下载的语言包。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;第一个容易理解，然而后两者怎么起作用初看会令人困惑。实际上这是基于 MSIX Package Dependency 机制的。我们下面使用一个例子来解释它是怎么工作的。&lt;/p&gt;
+&lt;p&gt;AppxManifest.xml 中可以设置 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Dependencies /&gt;&lt;/code&gt;，例如 WinUI3Gallery 应用拥有以下依赖：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;xml&quot;&gt;&lt;pre class=&quot;language-xml&quot;&gt;&lt;code class=&quot;language-xml&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;Dependencies&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;TargetDeviceFamily&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;Windows.Desktop&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;MinVersion&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;10.0.19041.0&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;MaxVersionTested&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;10.0.19041.0&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;  
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;PackageDependency&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;Microsoft.WindowsAppRuntime.1.3&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;MinVersion&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;3000.820.152.0&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;Publisher&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;  
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;PackageDependency&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;Microsoft.VCLibs.140.00&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;MinVersion&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;14.0.30704.0&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;Publisher&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;  
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;PackageDependency&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;Microsoft.VCLibs.140.00.UWPDesktop&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;MinVersion&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;14.0.30704.0&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;Publisher&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;  
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;Dependencies&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;可以看到，除了第一个是指定操作系统版本之外，后三个都是指定框架包依赖。但其实它们之间也有区别。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;Microsoft.WindowsAppRuntime.1.3&lt;/code&gt; 是 WinAppSDK 的框架包，它是一个 WinRT API 框架，用户程序通过 ActivationFactory 获取其接口。但是默认 WinRT 是按 COM 激活，也即本质是基于注册表激活的，怎么基于包激活呢？其 AppxManifest.xml 中含有
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;Extension Category=&quot;windows.activatableClass.inProcessServer&quot; /&gt;&lt;/code&gt;，表示可激活的 WinRT DLL 与 Class 的从属关系。&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/cb24c354e2c80e827a877b860a5ea781/0b6f4/MSIXInProcessServer.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75.9493670886076%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACY0lEQVR42l1T2XLbMBDT//9XM5k2h+3EjiXrlqhbFCnSad/QXTJKnDxgCHFMGLuLDZRSsFeLNcmg/+yhnl4hzi3qymAaVgyD+Ya+Z1gM49V9t63HuhoYYxDMcsYkJPJHgebUYE7oFPSj7opxuNLjqxcYLLqOxOjUM5mYR4yjgdYG7+9ezAnKZcbQKIS/ByS7DuWhRBpJnI4K57N0CM8KSbQiji3KkgQlCU4TpslgWbyQtR7BOI6OzE2HODzhHL/hLT0hLGNUoiJ3DaZ+guwW95BL09pC6esH96JKeQTL4n8oohbJfYbuMYTcnzBEFap0RZr+Rdda14KmMQTrIITn3D8hLOra84CHwoJ92kPsSvTHCjrKMWQ9mmxGlhpU5er72poPsS9BHhLfV5W/D7TWTrClyRZ3F4iHGPPLBdWroDuBS2SRZ8YJ1s6JcW5YYHPFnHvLf+JKXg01umigno9QDwd0UYNC/MM0WsyzddPsKSIjY/yKD3MejJs+JYF5sHAOyWFHPawfMhJ9g94d0UQ9QnKXJatzsIGdMPLcn1w2c4Yr2feQHl1GtPsI8vGJRPfIKTpZSiWJlRz4DG7wvfSc3W6DYteBlNIPRfQowxDZ6YChqFyJLmfSx0JKD+Y/v2/5R2wslriCvDtA/dpheMmRpBQTob8NYOMMLnG7LwpfPvPP2Jg8h6FS9Z52mfpXVO+uBC53K/E2h/yYe8Z3PHnmrmQnSJvSRzXK+wjDE4WaetmcGwq2omD7PrYc7hv8DDafTnCinWSHTT3iEpa0syRapNBth3lQrumLXD9Xa1uz2/N29f4DPhRev7Lun7MAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;MSIXInProcessServer&quot;
+        title=&quot;&quot;
+        src=&quot;/static/cb24c354e2c80e827a877b860a5ea781/f058b/MSIXInProcessServer.png&quot;
+        srcset=&quot;/static/cb24c354e2c80e827a877b860a5ea781/c26ae/MSIXInProcessServer.png 158w,
+/static/cb24c354e2c80e827a877b860a5ea781/6bdcf/MSIXInProcessServer.png 315w,
+/static/cb24c354e2c80e827a877b860a5ea781/f058b/MSIXInProcessServer.png 630w,
+/static/cb24c354e2c80e827a877b860a5ea781/40601/MSIXInProcessServer.png 945w,
+/static/cb24c354e2c80e827a877b860a5ea781/0b6f4/MSIXInProcessServer.png 984w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;Extension Category=&quot;windows.activatableClass.proxyStub&quot; /&gt;&lt;/code&gt;，表示一个 OutOfProc WinRT Server 的 RPC ProxyStub。可以想象到，这个 Server 肯定也是某个包里 XML 注册的，实际上语法就是 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;com:Extension Category=&quot;windows.comServer&quot;&gt;&amp;lt;com:ComServer /&gt;&amp;lt;/com:Extension&gt;&lt;/code&gt;。&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2afeb902c3967183b781969c89dc7614/0b6f4/MSIXProxyStub.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 23.417721518987342%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAABB0lEQVR42lWQ23aCMBBF+f9/a9Fwk1oFJAEUYwgJ8rgbsX3ow14zucxZ50ykakMZ37kUd26i4pxp9mIlTZ8ciid1tXBpV5pm5VyvzLJDdxrVeZRytK2n61zAMwyOyFqHTK8cPxqqpOAkTsS7gTiW7AJiLzkVF0pxJtkpisQw9hYzOYx5o/WbKdxFy9OjqysqVdg8p8tq9qkLQiYI2+DSYA5fTEKgSoX4tHxlE0XuyLKFPPcbr161M5H3nvb7wXGvkVlPU94RyRqEFtrmFWlBymWrQ+9ww8CiJFrpsIqFcXR475jn8OaCQzOaELmnDeibZbKex+MdZZ7n7ZP/Iwy6YMD99tvZ/ecHSixyIRntjjMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;MSIXProxyStub&quot;
+        title=&quot;&quot;
+        src=&quot;/static/2afeb902c3967183b781969c89dc7614/f058b/MSIXProxyStub.png&quot;
+        srcset=&quot;/static/2afeb902c3967183b781969c89dc7614/c26ae/MSIXProxyStub.png 158w,
+/static/2afeb902c3967183b781969c89dc7614/6bdcf/MSIXProxyStub.png 315w,
+/static/2afeb902c3967183b781969c89dc7614/f058b/MSIXProxyStub.png 630w,
+/static/2afeb902c3967183b781969c89dc7614/40601/MSIXProxyStub.png 945w,
+/static/2afeb902c3967183b781969c89dc7614/0b6f4/MSIXProxyStub.png 984w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;使用 XML 定义好这些之后，至少信息已经足以用于 WinRT Activation 了，并且通过包的元信息提供给 Windows 了，Windows 该做的就是按照包依赖反向注册，在激活时加以考虑，找到全部可能的激活路径。&lt;/li&gt;
+&lt;li&gt;该机制一般被称为 PackagedCOM，详情可以看&lt;a href=&quot;https://blogs.windows.com/windowsdeveloper/2017/04/13/com-server-ole-document-support-desktop-bridge/&quot;&gt;这篇文章&lt;/a&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;Microsoft.VCLibs.140.00&lt;/code&gt; 和 &lt;code class=&quot;language-text&quot;&gt;Microsoft.VCLibs.140.00.UWPDesktop&lt;/code&gt; 都是 VC 运行库，一个给 UWP 一个给桌面用，其下包目录下全部都是 dll 。
+&lt;ul&gt;
+&lt;li&gt;可以想见的是，在调用 &lt;code class=&quot;language-text&quot;&gt;LoadLibrary&lt;/code&gt; 时，搜索器会考虑 PackageDependency，从而使用到这个运行库。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;有没有觉得这个机制很眼熟？没错，DLL、COM Server，介入 DLL Loader 和 COM 激活机制，Per-application 的 Manifest，这不就是 &lt;a href=&quot;https://learn.microsoft.com/en-us/windows/win32/sbscs/about-side-by-side-assemblies-&quot;&gt;WinSxS Assembly&lt;/a&gt; 吗？这不就是 Isolation 吗？倒也不用见怪，现代包管理都是殊途同归的，WinSxS 思想确实超前 NixOS 十年，只不过说不定人们都没发现某个方法其实是一大类问题的万金油。&lt;/p&gt;
+&lt;p&gt;不过 PackageDependency 并非只能做 Assembly 已经做到的事，它实际上在以下全部方面都起作用：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DLL Loader - 在 &lt;a href=&quot;https://docs.microsoft.com/windows/win32/dlls/dynamic-link-library-search-order&quot;&gt;Dynamic-Link Library Search Order&lt;/a&gt; 中处于 CWD 之前，是旧的所有方法都找不到时才会考虑的选项。&lt;/li&gt;
+&lt;li&gt;Common Language Runtime - .Net CLR 会直接在包依赖中寻找程序集加载，本质是 DLL Loader 的 .Net 版本，具体 Search Order 未知，应该也是最后的 Fallback 。&lt;/li&gt;
+&lt;li&gt;COM - 上文都说了有 PackagedCOM 了，COM 的激活当然也是支持的。&lt;/li&gt;
+&lt;li&gt;Windows Runtime - 上文也提到了，是通过 XML 定义激活元信息配置的。
+&lt;ul&gt;
+&lt;li&gt;这里可以类比一下 CLR，因为 WinRT 本质就是 Windows 上的原生 CLR，连元信息（.winmd） 都用的是同一套（好像是经过 ECMA 标准化的）格式，可以用 ildasm.exe 查看。&lt;/li&gt;
+&lt;li&gt;为什么 CLR 不需要 XML 配置呢？我猜测是因为 .Net DLL 里都包含了 .Net Assembly Metadata，也就是一个 .Net DLL 就等价于一个 Self-contained Package，其 Assembly Identity 是全局唯一的，可以用于直接识别。&lt;/li&gt;
+&lt;li&gt;而 .winmd 和 IDL 可以互相转化，它没有 Assembly Identity （用 ildasm 可以看到基本是个空定义，我猜应该就是 placeholder ），而只有 Interface Definition。winmd 还是可组合的，一个包里可以有多个 winmd，可以说这些 winmd 分享了母包的 Package Identity 用于激活。&lt;/li&gt;
+&lt;li&gt;那为什么 .winmd 不能像 CLR 一样，解析 metadata 来获得信息，非要我们手动配置 ActivatableClass？这个我其实……圆不回来了。我觉得大概率是 CLR 当然可以轻松解析 .Net DLL 内的信息，但是 WinRT Activation Factory 其实是二进制接口 (&lt;code class=&quot;language-text&quot;&gt;RoGetActivationFactory&lt;/code&gt;) + 字符串激活 (&lt;code class=&quot;language-text&quot;&gt;HKLM\SOFTWARE\Microsoft\WindowsRuntime&lt;/code&gt;)，为了激活性能的考虑，或者为了不在系统级 DLL 中引入一个有一些体积的 winmd parser 等，都有可能。&lt;/li&gt;
+&lt;li&gt;文档里还提到了 WinRT Type Resolution 的流程就是给 Windows.* 开个洞，然后加上 PackageDependency，虽然没有强调，但他的意思是其它的一概不会考虑。这个忽略了注册表，我也不知道为什么会这么说。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;MRT / MRTCore - UWP 和 WinAppSDK 的两套资源管理系统，命名空间分别为 &lt;code class=&quot;language-text&quot;&gt;Windows/Microsoft.Windows.ApplicationModel.Resources&lt;/code&gt;，它们在解析时会把 PackageDependencies 划为不同的 ResourceMap 来访问，这也是 ResourcePackage 可以工作的原因。&lt;/li&gt;
+&lt;li&gt;ms-appx URI 协议 - &lt;a href=&quot;https://docs.microsoft.com/windows/uwp/app-resources/uri-schemes&quot;&gt;ms-appx URIs&lt;/a&gt; 的 authority 部分可以填一个 Package Identity，如果为空就是 Package.Current，如果非空则会从 PackageDependencies 中解析。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;除此之外，Dependency 还参与 Package Deployment，或者叫 Servicing（安装、更新与卸载）。例如假如一个 Framework 正在被某些应用依赖，它就不能立刻被更新，应该延迟到重启时等时候。涉及到版本以及卸载等情况的话就更复杂，这里必须要有一个严格并且鲁棒的引用计数机制，并且最好有保底机制存在。&lt;/p&gt;
+&lt;p&gt;这样解释下来应该可以看出 Package Dependency 的强大之处了，它是一个现代版的、和中上层抽象（WinRT、AppModel）紧密协作的 Isolation 机制。微软做这种东西已经得心应手（Windows Componentization Platform Servicing），所以这个现代版本还是相当 polish 的。&lt;/p&gt;
+&lt;h2&gt;困境&lt;/h2&gt;
+&lt;p&gt;产品矩阵&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Permission&lt;/th&gt;
+&lt;th&gt;Packaged&lt;/th&gt;
+&lt;th&gt;Unpackaged&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;App Container&lt;/td&gt;
+&lt;td&gt;UWP&lt;/td&gt;
+&lt;td&gt;Non sense&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Desktop Non-elevation&lt;/td&gt;
+&lt;td&gt;MSIX&lt;/td&gt;
+&lt;td&gt;Win32 Native&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Desktop Elevation&lt;/td&gt;
+&lt;td&gt;MSIX w/o PackagedCOM&lt;/td&gt;
+&lt;td&gt;Win32 Native&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;由于众所周知的原因，在 Windows 上大部分应用处于并将长期处于 Unpackaged 状态，当然也就和 PackageDependency 无缘。这样一来微软想要推广自己的基于 Dependency 的 Framework Package 时就没法覆盖这部分开发者。&lt;/p&gt;
+&lt;h2&gt;Dynamic Dependency&lt;/h2&gt;
+&lt;p&gt;为了让这些 Unpackaged 应用也能享受到 Package Dependency 的福利（这是主要原因），就需要提供一个方法给没有 Manifest 的应用告诉操作系统自己有什么 Dependency 。显然这个方法是运行时的，与 XML 描述的 Static Dependency 不同，所以它被称作 Dynamic Dependency。为了实现这一点，微软分了三步走&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;推出 MSIX 支持桌面应用打包。&lt;/li&gt;
+&lt;li&gt;Windows DynamicDependency API (Win11 Only)，为 Unpackaged 应用做原生支持。&lt;/li&gt;
+&lt;li&gt;Windows App SDK DynamicDependency API (Down to Win10 1809)，类似于 androidx 或者 WinUI 3，用模拟的方式在用户态将最新平台功能下放到旧平台。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;其中，1 不仅作为反向解决问题（消灭提出问题的应用）的办法，也作为 3 的基础。&lt;/p&gt;
+&lt;p&gt;实际上你可能要问了，Dependency 说到底也就是个存在内存中的图而已，修改一下到底有什么难的？其实这就是 2 的玩法，它修改了 Package Deployment 机制，让其对 Dynamic Dependency 有感知。具体做了什么？原本由于 Dependency 都是静态的，所以许多东西会被 Cache 下来，现在这些东西全部都要么废除 Cache，要么监听 Cache Invalidation（通过 Dependency Graph Revision Id，每次修改都会自增，使得 Cache 知道自己是旧的）。&lt;/p&gt;
+&lt;p&gt;下面重点讲讲 3 的玩法。DD 有两部分任务：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;保证 Dependency Effect，也即上面说的 DLL Loader 之类的。
+&lt;ul&gt;
+&lt;li&gt;这些 Effect 也是库，Windows 喜欢用 dll 实现系统功能，本质就是一个用户态的库。具体到这里来说，对于 Dependency 的读取目前全部来自于两个 API：&lt;code class=&quot;language-text&quot;&gt;GetCurrentPackageInfo&lt;/code&gt; 和 &lt;code class=&quot;language-text&quot;&gt;GetCurrentPackageInfo2&lt;/code&gt;。同时，这些 Effect 还会用其他的一些 MSIX AppModel API 查询当前包的信息。&lt;/li&gt;
+&lt;li&gt;如果我们 Hook 这些 MSIX AppModel API，假传圣旨，可以轻松假装当前进程是一个 Packaged 应用，并掺进我们的私货依赖，完全不用修改这些库的代码就可以让效果生效——&lt;/li&gt;
+&lt;li&gt;是这样吗？上文我们说了以前静态的东西现在动态，很可能以前的 Cache 现在会失效，这个问题还是需要手动解决。&lt;/li&gt;
+&lt;li&gt;很多机制并不叫做 Cache，但是本质是 Cache 。例如 DLL Search Order 会在进程创建时获取 PackageDependency 并计算一次 Order，此后再也不更新，这不是 Cache 胜似 Cache 。&lt;/li&gt;
+&lt;li&gt;对于这种，只能从 Effect 本身下手，例如使用 &lt;code class=&quot;language-text&quot;&gt;AddDllDirectory&lt;/code&gt; API 手动修改。是个脏活，但也没办法，Hook 都出来了也不用考虑脏不脏的了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;保证 Deployment Awareness，也即上面说的判断能否更新、一个旧版本的包能否被删除等场景。
+&lt;ul&gt;
+&lt;li&gt;制造一个依赖框架包的假包 DDLM，使用者在自己应用启动时启动它。&lt;/li&gt;
+&lt;li&gt;这也是 WinAppSDK 自己的做法，这个包由 WinAppSDK 主动提供。&lt;/li&gt;
+&lt;li&gt;可以预见的是，Unpackged 应用在不主动制造假包，并且框架方也没有提供 DDLM，并且版本低于 Windows 11 的时候，Package Dependency 的 Deployment Awareness &lt;strong&gt;没有办法被保证&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item></channel></rss>
